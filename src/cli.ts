@@ -47,17 +47,12 @@ const validateResumeType = (type: string): void => {
   }
 };
 
-const generateSingleResume = (type: string, outputDir: string, format: "html" | "typst" = "html"): string => {
-  const ext = format === "typst" ? "typ" : "html";
-  const outputFile = path.join(outputDir, `resume-${type}.${ext}`);
+const generateSingleResume = (type: string, outputDir: string): string => {
+  const outputFile = path.join(outputDir, `resume-${type}.html`);
   const generator = new ResumeGenerator();
 
   try {
-    if (format === "typst") {
-      generator.generateTypstFile(type, outputFile);
-    } else {
-      generator.generate(type, outputFile);
-    }
+    generator.generate(type, outputFile);
     return outputFile;
   } catch (error) {
     throw new Error(`Failed to generate ${type} resume: ${error}`);
@@ -72,7 +67,6 @@ program
   .argument("<type>", "Resume type to generate")
   .option("-o, --output <dir>", "Output directory", "resumes")
   .option("--no-build", "Skip TypeScript build step")
-  .option("-t, --typst", "Generate Typst file instead of HTML")
   .action((type: string, options) => {
     console.log(chalk.blue.bold("📄 Resume Generator\n"));
 
@@ -84,31 +78,20 @@ program
       buildProject();
     }
 
-    // Determine output directory based on format
-    const outputDir = options.typst ? "typst" : options.output;
-    const format = options.typst ? "typst" : "html";
-
     // Ensure output directory exists
-    ensureOutputDirectory(outputDir);
+    ensureOutputDirectory(options.output);
 
     // Generate resume
-    const spinner = ora(`Generating ${type} resume (${format})...`).start();
+    const spinner = ora(`Generating ${type} resume...`).start();
     try {
-      const outputFile = generateSingleResume(type, outputDir, format);
+      const outputFile = generateSingleResume(type, options.output);
       spinner.succeed(`Generated: ${chalk.green(outputFile)}`);
 
       console.log(chalk.gray("\n📁 Output location:"), chalk.cyan(outputFile));
-      if (!options.typst) {
-        console.log(
-          chalk.gray("🌐 Open in browser:"),
-          chalk.cyan(`file://${path.resolve(outputFile)}`),
-        );
-      } else {
-        console.log(
-          chalk.gray("📝 Compile to PDF:"),
-          chalk.cyan(`./compile.sh`),
-        );
-      }
+      console.log(
+        chalk.gray("🌐 Open in browser:"),
+        chalk.cyan(`file://${path.resolve(outputFile)}`),
+      );
     } catch (error) {
       spinner.fail(`Failed to generate ${type} resume`);
       console.error(chalk.red("Error:"), error);
@@ -122,21 +105,16 @@ program
   .description("Generate all resume types")
   .option("-o, --output <dir>", "Output directory", "resumes")
   .option("--no-build", "Skip TypeScript build step")
-  .option("-t, --typst", "Generate Typst files instead of HTML")
   .action((options) => {
-    const format = options.typst ? "typst" : "html";
-    console.log(chalk.blue.bold(`📄 Resume Generator - All Types (${format})\n`));
+    console.log(chalk.blue.bold("📄 Resume Generator - All Types\n"));
 
     // Build if needed
     if (options.build) {
       buildProject();
     }
 
-    // Determine output directory based on format
-    const outputDir = options.typst ? "typst" : options.output;
-
     // Ensure output directory exists
-    ensureOutputDirectory(outputDir);
+    ensureOutputDirectory(options.output);
 
     const availableTypes = getAvailableConfigTypes();
     const results: { type: string; file: string; success: boolean }[] = [];
@@ -149,7 +127,7 @@ program
     for (const type of availableTypes) {
       const spinner = ora(`Generating ${type} resume...`).start();
       try {
-        const outputFile = generateSingleResume(type, outputDir, format);
+        const outputFile = generateSingleResume(type, options.output);
         spinner.succeed(`${chalk.green("✓")} ${type} resume`);
         results.push({ type, file: outputFile, success: true });
       } catch (error) {
@@ -174,10 +152,6 @@ program
       successful.forEach((result) => {
         console.log(chalk.gray("  -"), chalk.cyan(result.file));
       });
-
-      if (options.typst) {
-        console.log(chalk.gray("\n📝 Compile to PDF:"), chalk.cyan("./compile.sh"));
-      }
     }
   });
 
