@@ -44,10 +44,10 @@
 
 *Senior Software Engineer* -- _GFX Labs (September 2025 - Present)_
 
-- Led the overhaul of UI development practices to a design system-based approach, establishing consistent brand identity across Oku and other GFX Labs products while mentoring junior developers and designers on the new workflow.
-- Took full ownership of a greenfield trading interface for Plasma's \$2.4B token launch, building a crypto trading application powered by Oku's meta aggregator.
-- Established code review standards and mentored three junior engineers on architecture and best practices, while integrating tooling to streamline designer participation in the review process.
-- Worked across the full stack to deliver greenfield projects, owning both frontend and backend development.
+- Drove frontend development for Oku, a multi-chain DEX aggregator processing *\$2B+ volume* for *800k+ users* across *35+ chains*.
+- Led the overhaul of UI development practices to a *design system-based approach*, establishing consistent brand identity across Oku and other GFX Labs products while mentoring junior developers and designers on the new workflow.
+- Took full ownership of a greenfield trading interface for Plasma's *\$2.4B token launch*, building a crypto trading application powered by Oku's meta aggregator.
+- Established code review standards and *mentored junior engineers* on architecture and best practices, while integrating tooling to streamline designer participation in the review process.
 
 *Tools:* Typescript, React, Vite, Wagmi, Viem, Tanstack Router+Query, Jotai, Storybook, Chromatic, Golang, Linux, Kubernetes, PostgreSQL, Redis, Docker, Git/Github, Digital Ocean, Temporal, Nix
 
@@ -57,14 +57,14 @@
 
 - Lead team of two engineers to compete in Bittensor subnets.
 - Fine-tuned tool calling LLMs, beating SOTA models on Berkley Function Calling Leaderboard, and achieving *top 10% subnet performance*.
-- Built and maintained infrastructure combining physical datacenter and cloud servers into a unified kubernetes cluster, delivering high-performance auto-scaled AI inference.
-- Engineered an advanced concurrent microservice architecture in Python and Golang that efficiently harvested and processed massive datasets from Reddit, Twitter, and Youtube, providing competitive edge in Bittensor subnet 13 (Data Universe).
+- Built and maintained infrastructure combining physical datacenter and cloud servers into a unified kubernetes cluster, delivering *high-performance auto-scaled AI inference*.
+- Engineered an advanced concurrent microservice architecture in Python and Golang that harvested and processed *tens of millions of rows daily* from Reddit, Twitter, and Youtube, providing competitive edge in Bittensor subnet 13 (Data Universe).
 
 *Tools:* Python, Golang, Rust, Linux, Kubernetes, Postgres, Redis, Docker, Git/Github, Huggingface, AWS, PyTorch, NumPy, Sglang, Vllm, AI Agents, ElizaOS, Daydreams
 
 #v(0.5em)
 
-*Mobile Software Engineer* -- _Tholos (October 2023 - January 2025)_
+*Mobile Engineer* -- _Tholos (October 2023 - January 2025)_
 
 - Full ownership of both iOS and Android mobile applications for Tholos MPC Crypto Wallet, implemented in React Native and securing over *\$35 Million* worth of digital assets.
 - Worked across the entire stack, implementing complex and critical code across a multitude of systems, including websocket and aws secure enclave.
