@@ -39,7 +39,7 @@
 - Took full ownership of a greenfield trading interface for Plasma's *\$2.4B token launch*, building a crypto trading application powered by Oku's meta aggregator.
 - Established code review standards and *mentored junior engineers* on architecture and best practices, integrating tooling for designer review participation.
 
-*Tools:* Typescript, React, Vite, Wagmi, Viem, Tanstack Router+Query, Jotai, Storybook, Chromatic, Golang, Linux, Kubernetes, PostgreSQL, Redis, Docker, Git/Github, Digital Ocean, Temporal, Nix
+#text(size: 9pt)[*Tools:* Typescript, React, Vite, Wagmi, Viem, Tanstack Router+Query, Jotai, Storybook, Chromatic, Golang, Linux, Kubernetes, PostgreSQL, Redis, Docker, Git/Github, Digital Ocean, Temporal, Nix]
 
 #v(0.5em)
 
@@ -50,7 +50,7 @@
 - Built and maintained infrastructure combining physical datacenter and cloud servers into a unified kubernetes cluster, delivering *high-performance auto-scaled AI inference*.
 - Engineered concurrent microservices in Python and Golang that harvested *tens of millions of rows daily* from Reddit, Twitter, and Youtube for Bittensor subnet 13 (Data Universe).
 
-*Tools:* Python, Golang, Rust, Linux, Kubernetes, Postgres, Redis, Docker, Git/Github, Huggingface, AWS, PyTorch, NumPy, Sglang, Vllm, AI Agents, ElizaOS, Daydreams
+#text(size: 9pt)[*Tools:* Python, Golang, Rust, Linux, Kubernetes, Postgres, Redis, Docker, Git/Github, Huggingface, AWS, PyTorch, NumPy, Sglang, Vllm, AI Agents, ElizaOS, Daydreams]
 
 #v(0.5em)
 
@@ -61,7 +61,7 @@
 - Worked in a *blockchain agnostic stack*, supporting key management, signing, and web3 integration across Ethereum, EVM L2s (Polygon, Arbitrum), Bitcoin, Solana, and Cosmos.
 - Implemented fault-tolerant key backup and recovery mechanisms across distributed mobile devices, with redundant safeguards ensuring *100% key recovery* even during network failures, device disconnects, or interrupted operations.
 
-*Tools:* React Native, Native Wind, Expo, JavaScript/Typescript, Bash, Python, Go, Rust, Postgres, Redis, AWS, Docker, Git/Github, FastAPI
+#text(size: 9pt)[*Tools:* React Native, Native Wind, Expo, JavaScript/Typescript, Bash, Python, Go, Rust, Postgres, Redis, AWS, Docker, Git/Github, FastAPI]
 
 #v(0.5em)
 
@@ -72,7 +72,7 @@
 - Built NFT releases for the community, working with local Chicago artists and philanthropies to raise money for local charities.
 - Launched and managed ETHChicago's Starknet validator, pioneering a sustainable funding model for the Chicago crypto community.
 
-*Tools:* React, Wagmi, Typescript, Solidity, Foundry, Hardhat, Storybook, Polygon, Ethereum, Chakra-UI, TailwindCSS, MaterialUI, Git/Github
+#text(size: 9pt)[*Tools:* React, Wagmi, Typescript, Solidity, Foundry, Hardhat, Storybook, Polygon, Ethereum, Chakra-UI, TailwindCSS, MaterialUI, Git/Github]
 
 #v(0.5em)
 
@@ -83,7 +83,7 @@
 - Worked with remote teams to build frontends for crypto lending platforms and communities.
 - Run two Starknet validators with over *\$500k* in combined delegated stake.
 
-*Tools:* React, Wagmi, Typescript, Solidity, Foundry, Hardhat, Slither, Storybook, Polygon, Ethereum, Chakra-UI, TailwindCSS, MaterialUI, Chromatic, Git/Github
+#text(size: 9pt)[*Tools:* React, Wagmi, Typescript, Solidity, Foundry, Hardhat, Slither, Storybook, Polygon, Ethereum, Chakra-UI, TailwindCSS, MaterialUI, Chromatic, Git/Github]
 
 #v(0.5em)
 
@@ -97,7 +97,7 @@
 - Lead weekly community calls to coordinate contributors.
 - Maintain leading OnlyDust project, supporting *15+ contributors*.
 
-*Tools:* Android Studio, Java, Kotlin, C, Rust, NDK, JNI, Git/Github
+#text(size: 9pt)[*Tools:* Android Studio, Java, Kotlin, C, Rust, NDK, JNI, Git/Github]
 
 #v(0.5em)
 
@@ -105,7 +105,7 @@
 
 - Developed and maintain the Cairo programming language extension for the Zed text editor, with *29,000+ users*.
 
-*Tools:* Rust, Tree-Sitter, Language Server Protocol, Git/Github
+#text(size: 9pt)[*Tools:* Rust, Tree-Sitter, Language Server Protocol, Git/Github]
 
 #v(0.5em)
 
