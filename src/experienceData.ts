@@ -90,6 +90,39 @@ export const DefaultProfessionalSummary: ProfessionalSummary = {
 };
 
 // ---- Work Experience ----
+export const GFXLabsWorkExperience: WorkExperience = {
+  id: "gfx-senior",
+  position: "Senior Software Engineer",
+  company: "GFX Labs",
+  duration: "September 2025 - Present",
+  responsibilities: [
+    "Led the overhaul of UI development practices to a design system-based approach, establishing consistent brand identity across Oku and other GFX Labs products while mentoring junior developers and designers on the new workflow.",
+    "Took full ownership of a greenfield trading interface for Plasma's $2.4B token launch, building a crypto trading application powered by Oku's meta aggregator.",
+    "Established code review standards and mentored three junior engineers on architecture and best practices, while integrating tooling to streamline designer participation in the review process.",
+    "Worked across the full stack to deliver greenfield projects, owning both frontend and backend development.",
+  ],
+  tools: [
+    "Typescript",
+    "React",
+    "Vite",
+    "Wagmi",
+    "Viem",
+    "Tanstack Router+Query",
+    "Jotai",
+    "Storybook",
+    "Chromatic",
+    "Golang",
+    "Linux",
+    "Kubernetes",
+    "PostgreSQL",
+    "Redis",
+    "Docker",
+    "Git/Github",
+    "Digital Ocean",
+    "Temporal",
+    "Nix"
+  ],
+};
 
 export const NakamotoWorkExperience: WorkExperience = {
   id: "nakamoto-senior",
@@ -162,7 +195,7 @@ export const SuffixLabsWorkExperience: WorkExperience = {
     "Founded Suffix Labs LLC to provide consulting and software development services.",
     "Consulted on and wrote software for various Web3/Smart Contract related projects.",
     "Worked asynchronously with multiple fully remote teams to build frontends for crypto lending platforms, services, and communities.",
-    "Run a validator for Starknet and other blockchain networks.",
+    "Run two Starknet validators with over $500k in combined delegated stake.",
   ],
   tools: [
     "React",
@@ -191,8 +224,9 @@ export const ETHChiWorkExperience: WorkExperience = {
   duration: "June 2023 - Present",
   responsibilities: [
     "Co-Founder of ETHChicago, a community built by and for the Ethereum, and greater Web3 ecosystem in the Midwest.",
-    "Led the development of ETHChicago's website, integrating NFT ticketing infrastructure for 500+ attendees.",
+    "Led the development of ETHChicago's initial website (since changed), integrating NFT ticketing infrastructure for 500+ attendees.",
     "Built NFT releases for the community, working with local Chicago artists and philanthropies to raise money for local charities.",
+    "Launched and managed ETHChicago's Starknet validator, pioneering a sustainable funding model for the Chicago crypto community.",
   ],
   tools: [
     "React",
