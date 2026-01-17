@@ -14,6 +14,9 @@
 #set par(justify: false, leading: 0.5em)
 #set list(indent: 1em, spacing: 0.4em, marker: [•])
 
+// Make links blue and underlined
+#show link: it => underline(text(fill: rgb("#0066cc"), it))
+
 // Header
 #align(center)[
   #text(size: 18pt, weight: "bold")[Thomas Robert Butler IV] \
