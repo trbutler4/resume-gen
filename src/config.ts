@@ -1,6 +1,7 @@
 import { ResumeConfig, SectionName } from "./types";
 import {
   DefaultPersonalInfo,
+  GFXLabsWorkExperience,
   NakamotoWorkExperience,
   TholosWorkExperience,
   CairoZedOpenSourceExperience,
@@ -32,6 +33,7 @@ export const sweConfig: ResumeConfig = {
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
   workExperience: [
+    GFXLabsWorkExperience,
     NakamotoWorkExperience,
     TholosWorkExperience,
     ETHChiWorkExperience,
@@ -53,7 +55,7 @@ export const aiMlConfig: ResumeConfig = {
   title: "Senior AI/ML Engineer",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [NakamotoWorkExperience, TholosWorkExperience],
+  workExperience: [GFXLabsWorkExperience, NakamotoWorkExperience, TholosWorkExperience],
   openSourceExperience: [CairoZedOpenSourceExperience],
   projects: [AISmartContractVulnerabilityProject],
   sectionsOrder: baseSectionOrder,
@@ -70,6 +72,7 @@ export const blockchainConfig: ResumeConfig = {
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
   workExperience: [
+    GFXLabsWorkExperience,
     NakamotoWorkExperience,
     TholosWorkExperience,
     ETHChiWorkExperience,
@@ -92,7 +95,7 @@ export const fullStackConfig: ResumeConfig = {
   title: "Senior Full-Stack Software Engineer",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [TholosWorkExperience, NakamotoWorkExperience],
+  workExperience: [GFXLabsWorkExperience, TholosWorkExperience, NakamotoWorkExperience],
   openSourceExperience: [
     StarknetPhoneOpenSourceExperience,
     CairoZedOpenSourceExperience,
@@ -111,7 +114,7 @@ export const mobileConfig: ResumeConfig = {
   title: "Senior Mobile Software Engineer",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [TholosWorkExperience, NakamotoWorkExperience],
+  workExperience: [GFXLabsWorkExperience, TholosWorkExperience, NakamotoWorkExperience],
   openSourceExperience: [
     StarknetPhoneOpenSourceExperience,
     CairoZedOpenSourceExperience,
@@ -130,7 +133,7 @@ export const sreConfig: ResumeConfig = {
   title: "Software Engineer - SRE",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [TholosWorkExperience, NakamotoWorkExperience],
+  workExperience: [GFXLabsWorkExperience, TholosWorkExperience, NakamotoWorkExperience],
   openSourceExperience: [
     StarknetPhoneOpenSourceExperience,
     CairoZedOpenSourceExperience,
@@ -150,6 +153,7 @@ export const suffixLabsConfig: ResumeConfig = {
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
   workExperience: [
+    GFXLabsWorkExperience,
     SuffixLabsWorkExperience,
     TholosWorkExperience,
     NakamotoWorkExperience,
