@@ -68,7 +68,7 @@
 
 - Full ownership of both iOS and Android mobile applications for Tholos MPC Crypto Wallet, implemented in React Native and securing over *\$35 Million* worth of digital assets.
 - Worked across the entire stack, implementing complex and critical code across a multitude of systems, including websocket and aws secure enclave.
-- Worked in a blockchain agnostic stack, supporting key management, signing, and web3 integration across numerous networks including Ethereum, the most popular EVM compatible blockchains and L2s (Polygon, Arbitrum, etc.), Bitcoin, Solana, and Cosmos ecosystem.
+- Worked in a *blockchain agnostic stack*, supporting key management, signing, and web3 integration across numerous networks including Ethereum, the most popular EVM compatible blockchains and L2s (Polygon, Arbitrum, etc.), Bitcoin, Solana, and Cosmos ecosystem.
 - Implemented fault-tolerant key backup and recovery mechanisms across distributed mobile devices, with redundant safeguards ensuring *100% key recovery* even during network failures, device disconnects, or interrupted operations.
 
 *Tools:* React Native, Native Wind, Expo, JavaScript/Typescript, Bash, Python, Go, Rust, Postgres, Redis, AWS, Docker, Git/Github, FastAPI
