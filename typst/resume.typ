@@ -28,16 +28,6 @@
 
 #v(0.5em)
 
-// Summary
-== Summary
-#line(length: 100%, stroke: 0.5pt)
-
-- *Education:* University of Iowa, BSE Computer Science and Engineering
-- *Languages:* Python, C/C++, Go, Rust, Java, Kotlin, Solidity, Cairo, Javascript/Typescript, HTML, Verilog, x64 Assembly, Bash
-- *Tools:* Linux, Git/Github, AWS, React, React Native, NextJS, Hardhat, Foundry, Postgres, Redis, Docker, Kubernetes, PyTorch, Starknet React, Wagmi, TailwindCSS
-
-#v(0.5em)
-
 // Work Experience
 == Work Experience
 #line(length: 100%, stroke: 0.5pt)
@@ -116,3 +106,11 @@
 - Developed and maintain the Cairo programming language extension for the Zed text editor, with *29,000+ users*.
 
 *Tools:* Rust, Tree-Sitter, Language Server Protocol, Git/Github
+
+#v(0.5em)
+
+// Education
+== Education
+#line(length: 100%, stroke: 0.5pt)
+
+*University of Iowa* -- BSE Computer Science and Engineering
