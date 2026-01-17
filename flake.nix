@@ -17,7 +17,7 @@
         in
         {
           default = pkgs.mkShell {
-            packages = [ pkgs.bun pkgs.nodejs ];
+            packages = [ pkgs.bun pkgs.typst ];
           };
         });
     };

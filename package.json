@@ -9,7 +9,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "generate": "bun run build && node dist/src/cli.js all",
+    "generate": "bun run build && bun dist/src/cli.js all",
+    "generate:typst": "bun run build && bun dist/src/cli.js all --typst",
+    "generate:pdf": "bun run generate:typst && ./compile.sh",
     "type-check": "tsc --noEmit",
     "install-global": "npm run build && npm install -g .",
     "postinstall": "npm run build"
