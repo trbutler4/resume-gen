@@ -21,7 +21,7 @@
   #v(0.3em)
   #text(size: 9pt)[
     #link("mailto:trbiv@proton.me")[trbiv\@proton.me] |
-    #link("https://github.com/trbutler4")[Github] |
+    #link("https://github.com/trbutler4")[Github: trbutler4] |
     #link("https://www.linkedin.com/in/thomas-butler-1a435018b/")[LinkedIn]
   ]
 ]
@@ -86,6 +86,17 @@
 
 #v(0.5em)
 
+*Founder and CEO* -- _Suffix Labs (July 2023 - Present)_
+
+- Founded Suffix Labs LLC to provide consulting and software development services.
+- Consulted on and wrote software for various Web3/Smart Contract related projects.
+- Worked asynchronously with multiple fully remote teams to build frontends for crypto lending platforms, services, and communities.
+- Run two Starknet validators with over *\$500k* in combined delegated stake.
+
+*Tools:* React, Wagmi, Typescript, Solidity, Foundry, Hardhat, Slither, Storybook, Polygon, Ethereum, Chakra-UI, TailwindCSS, MaterialUI, Chromatic, Git/Github
+
+#v(0.5em)
+
 // Open Source Experience
 == Open Source Experience
 #line(length: 100%, stroke: 0.5pt)
@@ -102,6 +113,6 @@
 
 *Maintainer* -- _Cairo Zed Extension (July 2024 - Present)_ - #link("https://github.com/trbutler4/zed-cairo")[Github]
 
-- Developed and maintain the Cairo programming language extension for the Zed text editor, with *7000+ users*.
+- Developed and maintain the Cairo programming language extension for the Zed text editor, with *29,000+ users*.
 
 *Tools:* Rust, Tree-Sitter, Language Server Protocol, Git/Github
