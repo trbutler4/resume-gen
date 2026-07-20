@@ -7,7 +7,7 @@ import * as fs from "fs";
 import * as path from "path";
 import { execSync } from "child_process";
 import ResumeGenerator from "./generateResume";
-import { getAvailableConfigTypes } from "./config";
+import { getAvailableConfigTypes, getConfig } from "./config";
 
 const program = new Command();
 
@@ -300,6 +300,83 @@ program
     }
 
     console.log(chalk.green("\n✨ Cleaning completed"));
+  });
+
+// Typst PDF generation command
+program
+  .command("pdf")
+  .description("Generate PDF resumes using Typst")
+  .argument("[type]", "Resume type to generate (or 'all')", "all")
+  .option("-o, --output <dir>", "Output directory", "resumes")
+  .action((type: string, options) => {
+    console.log(chalk.blue.bold("📄 Typst PDF Generator\n"));
+
+    const typstDataDir = "typst/data";
+    const typstTemplate = "typst/templates/resume.typ";
+
+    // Ensure directories exist
+    ensureOutputDirectory(typstDataDir);
+    ensureOutputDirectory(options.output);
+
+    // Check typst is available
+    try {
+      execSync("typst --version", { stdio: "pipe" });
+    } catch {
+      console.error(chalk.red("Error: typst not found. Install from https://typst.app"));
+      process.exit(1);
+    }
+
+    const typesToGenerate = type === "all" 
+      ? getAvailableConfigTypes() 
+      : [type];
+
+    if (type !== "all") {
+      validateResumeType(type);
+    }
+
+    console.log(chalk.yellow(`Generating ${typesToGenerate.length} PDF resume(s)...\n`));
+
+    const results: { type: string; file: string; success: boolean }[] = [];
+
+    for (const resumeType of typesToGenerate) {
+      const spinner = ora(`Generating ${resumeType} PDF...`).start();
+      
+      try {
+        // Export config to JSON
+        const config = getConfig(resumeType);
+        const jsonPath = path.join(typstDataDir, "data.json");
+        fs.writeFileSync(jsonPath, JSON.stringify(config, null, 2));
+
+        // Compile with typst (use --root to allow data access)
+        const outputFile = path.join(options.output, `resume-${resumeType}.pdf`);
+        const rootDir = process.cwd();
+        execSync(`typst compile --root ${rootDir} ${typstTemplate} ${outputFile}`, { stdio: "pipe" });
+        
+        spinner.succeed(`${chalk.green("✓")} ${resumeType} PDF`);
+        results.push({ type: resumeType, file: outputFile, success: true });
+      } catch (error) {
+        spinner.fail(`${chalk.red("✗")} ${resumeType} PDF`);
+        console.error(chalk.red(`  Error: ${error}`));
+        results.push({ type: resumeType, file: "", success: false });
+      }
+    }
+
+    // Summary
+    const successful = results.filter((r) => r.success);
+    const failed = results.filter((r) => !r.success);
+
+    console.log(chalk.blue.bold("\n📊 Generation Summary:"));
+    console.log(chalk.green(`✓ Successful: ${successful.length}`));
+    if (failed.length > 0) {
+      console.log(chalk.red(`✗ Failed: ${failed.length}`));
+    }
+
+    if (successful.length > 0) {
+      console.log(chalk.gray("\n📁 Generated PDFs:"));
+      successful.forEach((result) => {
+        console.log(chalk.gray("  -"), chalk.cyan(result.file));
+      });
+    }
   });
 
 // Error handling for unknown commands

@@ -1,13 +1,11 @@
 import { ResumeConfig, SectionName } from "./types";
 import {
   DefaultPersonalInfo,
+  OkuTradeWorkExperience,
   NakamotoWorkExperience,
   TholosWorkExperience,
-  CairoZedOpenSourceExperience,
   AISmartContractVulnerabilityProject,
   SuffixLabsWorkExperience,
-  StarknetPhoneOpenSourceExperience,
-  ETHChiWorkExperience,
   DefaultProfessionalSummary,
 } from "./experienceData";
 
@@ -22,8 +20,6 @@ const baseMetrics = [
 const baseSectionOrder: SectionName[] = [
   "professionalSummary",
   "workExperience",
-  "projects",
-  "openSourceExperience",
 ];
 
 export const sweConfig: ResumeConfig = {
@@ -32,14 +28,11 @@ export const sweConfig: ResumeConfig = {
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
   workExperience: [
+    OkuTradeWorkExperience,
     NakamotoWorkExperience,
     TholosWorkExperience,
-    ETHChiWorkExperience,
   ],
-  openSourceExperience: [
-    StarknetPhoneOpenSourceExperience,
-    CairoZedOpenSourceExperience,
-  ],
+  openSourceExperience: [],
   projects: [],
   sectionsOrder: baseSectionOrder,
   emphasize: {
@@ -53,8 +46,8 @@ export const aiMlConfig: ResumeConfig = {
   title: "Senior AI/ML Engineer",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [NakamotoWorkExperience, TholosWorkExperience],
-  openSourceExperience: [CairoZedOpenSourceExperience],
+  workExperience: [OkuTradeWorkExperience, NakamotoWorkExperience, TholosWorkExperience],
+  openSourceExperience: [],
   projects: [AISmartContractVulnerabilityProject],
   sectionsOrder: baseSectionOrder,
   emphasize: {
@@ -70,15 +63,12 @@ export const blockchainConfig: ResumeConfig = {
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
   workExperience: [
+    OkuTradeWorkExperience,
     NakamotoWorkExperience,
     TholosWorkExperience,
-    ETHChiWorkExperience,
   ],
-  openSourceExperience: [
-    StarknetPhoneOpenSourceExperience,
-    CairoZedOpenSourceExperience,
-  ],
-  projects: [], //[KakarotBridgeProject, StarkSproutsProject, ZkCreditProofsProject],
+  openSourceExperience: [],
+  projects: [],
   sectionsOrder: baseSectionOrder,
   emphasize: {
     keywords: [],
@@ -92,12 +82,14 @@ export const fullStackConfig: ResumeConfig = {
   title: "Senior Full-Stack Software Engineer",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [TholosWorkExperience, NakamotoWorkExperience],
-  openSourceExperience: [
-    StarknetPhoneOpenSourceExperience,
-    CairoZedOpenSourceExperience,
+  workExperience: [
+    OkuTradeWorkExperience,
+    SuffixLabsWorkExperience,
+    NakamotoWorkExperience,
+    TholosWorkExperience,
   ],
-  projects: [], // [NFTicketProject, CurateProject, PeerioProject],
+  openSourceExperience: [],
+  projects: [],
   sectionsOrder: baseSectionOrder,
   emphasize: {
     keywords: [],
@@ -105,17 +97,13 @@ export const fullStackConfig: ResumeConfig = {
   },
 };
 
-// mobile engineer resume
 export const mobileConfig: ResumeConfig = {
   resumeType: "mobile",
   title: "Senior Mobile Software Engineer",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [TholosWorkExperience, NakamotoWorkExperience],
-  openSourceExperience: [
-    StarknetPhoneOpenSourceExperience,
-    CairoZedOpenSourceExperience,
-  ],
+  workExperience: [OkuTradeWorkExperience, NakamotoWorkExperience, TholosWorkExperience],
+  openSourceExperience: [],
   projects: [], // [StarkSproutsProject, KakarotBridgeProject],
   sectionsOrder: baseSectionOrder,
   emphasize: {
@@ -130,11 +118,8 @@ export const sreConfig: ResumeConfig = {
   title: "Software Engineer - SRE",
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
-  workExperience: [TholosWorkExperience, NakamotoWorkExperience],
-  openSourceExperience: [
-    StarknetPhoneOpenSourceExperience,
-    CairoZedOpenSourceExperience,
-  ],
+  workExperience: [OkuTradeWorkExperience, NakamotoWorkExperience, TholosWorkExperience],
+  openSourceExperience: [],
   projects: [],
   sectionsOrder: baseSectionOrder,
   emphasize: {
@@ -150,15 +135,12 @@ export const suffixLabsConfig: ResumeConfig = {
   personalInfo: DefaultPersonalInfo,
   professionalSummary: DefaultProfessionalSummary,
   workExperience: [
+    OkuTradeWorkExperience,
     SuffixLabsWorkExperience,
     TholosWorkExperience,
     NakamotoWorkExperience,
-    ETHChiWorkExperience,
   ],
-  openSourceExperience: [
-    StarknetPhoneOpenSourceExperience,
-    CairoZedOpenSourceExperience,
-  ],
+  openSourceExperience: [],
   projects: [],
   sectionsOrder: baseSectionOrder,
   emphasize: {

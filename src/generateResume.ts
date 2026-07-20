@@ -57,9 +57,6 @@ class ResumeGenerator {
             <li>
               <strong>Languages:</strong> ${skills.languages.join(", ")}
             </li>
-            <li>
-              <strong>Tools:</strong> ${skills.tools.join(", ")}
-            </li>
           </ul>
         </div>
       </section>
