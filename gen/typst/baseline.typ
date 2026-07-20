@@ -1,5 +1,5 @@
-#import "../typst/lib.typ": render
-#import "../typst/data.typ": *
+#import "lib.typ": render
+#import "data.typ": *
 
 #let config = (
   personal: personal,

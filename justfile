@@ -1,16 +1,16 @@
 # Build specific resume (e.g., `just build baseline`)
 build name:
-	mkdir -p resumes
-	typst compile --root . resumes/{{name}}.typ resumes/{{name}}.pdf
+	mkdir -p gen/resumes
+	typst compile --root . gen/typst/{{name}}.typ gen/resumes/{{name}}.pdf
 
 # Build all resumes
 all:
-	mkdir -p resumes
-	@for f in resumes/*.typ; do \
+	mkdir -p gen/resumes
+	@for f in gen/typst/*.typ; do \
 		name=$$(basename "$$f" .typ); \
-		typst compile --root . "$$f" "resumes/$$name.pdf"; \
+		typst compile --root . "$$f" "gen/resumes/$$name.pdf"; \
 	done
 
 # Clean generated PDFs
 clean:
-	rm -f resumes/*.pdf
+	rm -f gen/resumes/*.pdf

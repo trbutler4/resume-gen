@@ -1,5 +1,5 @@
 # Generated PDFs
-resumes/*.pdf
+gen/resumes/*.pdf
 
 # OS generated files
 .DS_Store
