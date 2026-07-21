@@ -1,4 +1,3 @@
-// Personal Info
 #let personal = (
   name: "Thomas Robert Butler IV",
   email: "trbiv@proton.me",
@@ -6,13 +5,11 @@
   linkedin: "https://www.linkedin.com/in/thomas-butler-1a435018b/",
 )
 
-// Education
 #let education = (
   institution: "University of Iowa",
   degree: "BSE Computer Science and Engineering",
 )
 
-// Languages
 #let languages = (
   "Javascript/Typescript",
   "Go",
@@ -24,7 +21,6 @@
   "Python",
 )
 
-// Work: GFX Labs
 #let gfx_labs = (
   position: "Senior Software Engineer",
   company: "GFX Labs",
@@ -52,7 +48,6 @@
   ),
 )
 
-// Work: Nakamoto
 #let nakamoto = (
   position: "Senior Software Engineer",
   company: "Nakamoto LLC",
@@ -85,7 +80,6 @@
   ),
 )
 
-// Work: Tholos
 #let tholos = (
   position: "Mobile Software Engineer",
   company: "Tholos",
@@ -113,7 +107,6 @@
   ),
 )
 
-// Work: Suffix Labs
 #let suffix_labs = (
   position: "Founder",
   company: "Suffix Labs",
@@ -138,7 +131,6 @@
   ),
 )
 
-// Project: AI Smart Contract Vulnerability Detection
 #let ai_smart_contract_project = (
   name: "AI Smart Contract Vulnerability Detection",
   achievements: (),

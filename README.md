@@ -5,7 +5,6 @@ Typst-based resume generator. One data source, multiple tailored resumes.
 ## Prerequisites
 
 - [Typst](https://github.com/typst/typst)
-- [just](https://github.com/casey/just) (task runner)
 
 Or use the Nix flake:
 
@@ -16,18 +15,16 @@ nix develop
 ## Usage
 
 ```bash
-# Build baseline resume
-just build baseline
-
-# Build all resumes in resumes/
-just all
-
-# Clean generated PDFs
-just clean
+# Build all resumes
+./build.sh
 ```
 
-Per-application tailoring: copy `resumes/baseline.typ` to `resumes/company-role.typ`,
-select/reorder jobs, and override specific bullets using the spread pattern:
+Output goes to `gen/resumes/`.
+
+## Per-Application Tailoring
+
+Copy `gen/typst/baseline.typ` to `gen/typst/company-role.typ`,
+select/reorder jobs, and override specific bullets:
 
 ```typst
 (..gfx_labs, responsibilities: (
@@ -37,4 +34,4 @@ select/reorder jobs, and override specific bullets using the spread pattern:
 ))
 ```
 
-Output goes to `resumes/`.
+Run `./build.sh` to generate all PDFs.

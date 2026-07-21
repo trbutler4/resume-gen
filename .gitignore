@@ -1,6 +1,9 @@
 # Generated PDFs
 gen/resumes/*.pdf
 
+# Generated files (safe to delete)
+gen/
+
 # OS generated files
 .DS_Store
 .DS_Store?

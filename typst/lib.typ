@@ -1,5 +1,3 @@
-// Shared styling and helpers
-
 #set page(
   paper: "us-letter",
   margin: (x: 0.5in, y: 0.5in),
@@ -12,7 +10,6 @@
 
 #set par(leading: 0.5em)
 
-// Auto-bold metrics
 #show regex("\$[\d,]+(\.\d+)?[\s]*(million|Million|M)[\+]?"): set text(weight: "bold")
 #show regex("\d+(\.\d+)?\+"): set text(weight: "bold")
 #show regex("\d+(\.\d+)?%"): set text(weight: "bold")
@@ -30,7 +27,6 @@
 }
 
 #let render(config) = {
-  // Header
   align(center)[
     #text(size: 16pt, weight: "bold")[#config.personal.name - #config.title]
     #v(4pt)
@@ -39,14 +35,12 @@
     #link(config.personal.linkedin)[LinkedIn]
   ]
 
-  // Summary
   section-title("Summary")
   pad(left: 12pt)[
     - *Education:* #config.education.institution, #config.education.degree
     - *Languages:* #config.languages.join(", ")
   ]
 
-  // Work Experience
   section-title("Work Experience")
   pad(left: 12pt)[
     #for job in config.work {
@@ -58,7 +52,6 @@
     }
   ]
 
-  // Projects
   if config.projects.len() > 0 {
     section-title("Project Highlights")
     pad(left: 12pt)[
