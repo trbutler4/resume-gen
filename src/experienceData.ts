@@ -124,6 +124,31 @@ export const GFXLabsWorkExperience: WorkExperience = {
   ],
 };
 
+export const GFXLabsDragonflyWorkExperience: WorkExperience = {
+  id: "gfx-senior-dragonfly",
+  position: "Senior Software Engineer",
+  company: "GFX Labs",
+  duration: "September 2025 - Present",
+  responsibilities: [
+    "Built and shipped the trading interface for Plasma's $2.4B token launch, gaining deep domain expertise in DEX aggregation, token launch mechanics, and DeFi market structure through Oku's meta aggregator platform.",
+    "Operated within GFX Labs' portfolio of DeFi products spanning Uniswap governance tooling, on-chain trading infrastructure, and protocol analytics, developing strong pattern recognition for crypto product-market fit.",
+    "Drove cross-functional product decisions across frontend and backend systems, evaluating technical tradeoffs and scoping greenfield projects from concept to production -- directly translating technical due diligence into shipped products.",
+    "Mentored three junior engineers and led design system adoption across multiple products, demonstrating project management and interpersonal skills in a fast-paced, autonomous crypto-native environment.",
+  ],
+  tools: [
+    "DeFi",
+    "DEX Aggregation",
+    "Uniswap",
+    "Token Launches",
+    "Typescript",
+    "React",
+    "Golang",
+    "PostgreSQL",
+    "Kubernetes",
+    "Docker",
+  ],
+};
+
 export const NakamotoWorkExperience: WorkExperience = {
   id: "nakamoto-senior",
   position: "Senior Software Engineer",
@@ -157,6 +182,28 @@ export const NakamotoWorkExperience: WorkExperience = {
   ],
 };
 
+export const NakamotoDragonflyWorkExperience: WorkExperience = {
+  id: "nakamoto-senior-dragonfly",
+  position: "Senior Software Engineer",
+  company: "Nakamoto LLC",
+  duration: "January 2025 - June 2025",
+  responsibilities: [
+    "Led a team competing in Bittensor subnets, developing deep expertise in crypto incentive mechanisms, tokenomics, and decentralized AI network economics.",
+    "Built large-scale data harvesting and processing pipelines across Reddit, Twitter, and Youtube, developing skills in sourcing and analyzing alternative data relevant to crypto market research.",
+    "Achieved top 10% subnet performance by fine-tuning LLMs against state-of-the-art benchmarks, demonstrating strong analytical skills and data-driven decision making in competitive crypto-native environments.",
+  ],
+  tools: [
+    "Bittensor",
+    "Tokenomics",
+    "AI/ML",
+    "Data Analysis",
+    "Python",
+    "Golang",
+    "Kubernetes",
+    "AWS",
+  ],
+};
+
 export const TholosWorkExperience: WorkExperience = {
   id: "tholos-mobile",
   position: "Mobile Software Engineer",
@@ -183,6 +230,28 @@ export const TholosWorkExperience: WorkExperience = {
     "Docker",
     "Git/Github",
     "FastAPI",
+  ],
+};
+
+export const TholosDragonflyWorkExperience: WorkExperience = {
+  id: "tholos-mobile-dragonfly",
+  position: "Software Engineer",
+  company: "Tholos",
+  duration: "October 2023 - January 2025",
+  responsibilities: [
+    "Owned the full product lifecycle for Tholos MPC Crypto Wallet securing over $35 Million in digital assets, gaining hands-on expertise in custody infrastructure, key management, and crypto security -- core due diligence areas for crypto venture investments.",
+    "Developed deep cross-chain technical fluency across Ethereum, Bitcoin, Solana, Cosmos, and major L2s (Polygon, Arbitrum), building the breadth of protocol knowledge critical for evaluating multi-chain investment opportunities.",
+    "Worked directly with founders in a small, fast-moving startup environment, autonomously driving product decisions and technical architecture across the full stack.",
+  ],
+  tools: [
+    "MPC Wallets",
+    "Key Management",
+    "Ethereum",
+    "Bitcoin",
+    "Solana",
+    "Cosmos",
+    "L2s",
+    "Crypto Security",
   ],
 };
 
@@ -217,6 +286,27 @@ export const SuffixLabsWorkExperience: WorkExperience = {
   status: "optional",
 };
 
+export const SuffixLabsDragonflyWorkExperience: WorkExperience = {
+  id: "suffix-labs-founder-dragonfly",
+  position: "Founder and CEO",
+  company: "Suffix Labs",
+  duration: "July 2023 - Present",
+  responsibilities: [
+    "Founded and operate a crypto consulting firm, sourcing and evaluating Web3 projects across DeFi lending, smart contracts, and protocol development -- building a deal sourcing and technical evaluation skillset directly applicable to crypto venture.",
+    "Operate two Starknet validators with over $500k in combined delegated stake, demonstrating personal conviction and skin-in-the-game across crypto infrastructure investments.",
+    "Built software for crypto lending platforms and DeFi communities across multiple remote teams, developing cross-cultural collaboration skills and a strong network across the crypto ecosystem.",
+  ],
+  tools: [
+    "DeFi",
+    "Smart Contracts",
+    "Starknet",
+    "Validator Operations",
+    "Solidity",
+    "Ethereum",
+    "Polygon",
+  ],
+};
+
 export const ETHChiWorkExperience: WorkExperience = {
   id: "ethchi-cofounder",
   position: "Co-Founder and Tech Lead",
@@ -245,6 +335,25 @@ export const ETHChiWorkExperience: WorkExperience = {
     "Git/Github",
   ],
   status: "optional",
+};
+
+export const ETHChiDragonflyWorkExperience: WorkExperience = {
+  id: "ethchi-cofounder-dragonfly",
+  position: "Co-Founder",
+  company: "ETHChicago",
+  duration: "June 2023 - Present",
+  responsibilities: [
+    "Co-Founded ETHChicago, building and leading the Ethereum and Web3 community in the Midwest with 500+ attendees, developing a strong crypto network and community engagement skills.",
+    "Pioneered a sustainable funding model for the community by launching and managing a Starknet validator, demonstrating entrepreneurial thinking and crypto-native financial innovation.",
+    "Collaborated with artists, philanthropies, and crypto-native organizations on NFT fundraising initiatives, building cross-functional relationships across the crypto ecosystem.",
+  ],
+  tools: [
+    "Ethereum",
+    "Starknet",
+    "NFTs",
+    "Community Building",
+    "Solidity",
+  ],
 };
 
 export const MSCWorkExperience: WorkExperience = {

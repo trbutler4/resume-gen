@@ -2,13 +2,18 @@ import { ResumeConfig, SectionName } from "./types";
 import {
   DefaultPersonalInfo,
   GFXLabsWorkExperience,
+  GFXLabsDragonflyWorkExperience,
   NakamotoWorkExperience,
+  NakamotoDragonflyWorkExperience,
   TholosWorkExperience,
+  TholosDragonflyWorkExperience,
   CairoZedOpenSourceExperience,
   AISmartContractVulnerabilityProject,
   SuffixLabsWorkExperience,
+  SuffixLabsDragonflyWorkExperience,
   StarknetPhoneOpenSourceExperience,
   ETHChiWorkExperience,
+  ETHChiDragonflyWorkExperience,
   DefaultProfessionalSummary,
 } from "./experienceData";
 
@@ -171,6 +176,37 @@ export const suffixLabsConfig: ResumeConfig = {
   },
 };
 
+// Dragonfly VC Analyst resume -- emphasizes crypto-native expertise, business impact, and analytical skills
+export const dragonflyConfig: ResumeConfig = {
+  resumeType: "dragonfly",
+  title: "Crypto-Native Engineer & Founder",
+  personalInfo: DefaultPersonalInfo,
+  professionalSummary: DefaultProfessionalSummary,
+  workExperience: [
+    GFXLabsDragonflyWorkExperience,
+    SuffixLabsDragonflyWorkExperience,
+    NakamotoDragonflyWorkExperience,
+    TholosDragonflyWorkExperience,
+    ETHChiDragonflyWorkExperience,
+  ],
+  openSourceExperience: [
+    CairoZedOpenSourceExperience,
+  ],
+  projects: [],
+  sectionsOrder: baseSectionOrder,
+  emphasize: {
+    keywords: [],
+    metrics: [
+      "$2.4B token launch",
+      "$35 Million",
+      "$500k delegated stake",
+      "500+ attendees",
+      "top 10% subnet performance",
+      "7000+ users",
+    ],
+  },
+};
+
 export const configs: Record<string, ResumeConfig> = {
   swe: sweConfig,
   ai: aiMlConfig,
@@ -179,6 +215,7 @@ export const configs: Record<string, ResumeConfig> = {
   mobile: mobileConfig,
   suffixLabs: suffixLabsConfig,
   sre: sreConfig,
+  dragonfly: dragonflyConfig,
 };
 
 export const getConfig = (configType: string): ResumeConfig => {
