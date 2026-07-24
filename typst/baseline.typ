@@ -1,3 +1,5 @@
+#set page(paper: "us-letter", margin: (x: 0.25in, y: 0.2in))
+
 #import "lib.typ": render
 #import "data.typ": *
 
@@ -12,7 +14,7 @@
     nakamoto,
     tholos,
   ),
-  projects: (ai_smart_contract_project,),
+  projects: (),
 )
 
 #render(config)

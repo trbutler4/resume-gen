@@ -14,8 +14,6 @@
   "Javascript/Typescript",
   "Go",
   "Rust",
-  "Java",
-  "Kotlin",
   "Solidity",
   "Cairo",
   "Python",
