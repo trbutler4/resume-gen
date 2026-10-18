@@ -1,5 +1,7 @@
 # GitHub technical-skills audit
 
+**Generator migration:** Reusable exports now live in `typst/portfolio.typ` and tailored selections in `typst/configs.typ`. Historical TypeScript/HTML references below describe the original implementation. All portfolio values and nine configs were compared exactly during migration; `./build.sh` now builds PDFs directly with Typst.
+
 Reviewed October 17, 2026, for an engineering-focused Anthropic Fellows application with Frontier Red Team interest.
 
 ## Quantification update

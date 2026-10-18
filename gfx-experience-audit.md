@@ -1,5 +1,7 @@
 # GFX Labs / Oku engineering experience
 
+**Generator migration:** The named experience exports and engineering highlights now live in `typst/portfolio.typ`; Anthropic selection lives in `typst/configs.typ`. Historical `src/experienceData.ts` references below refer to the pre-migration source.
+
 Reviewed October 17, 2026 using authenticated `gh` access to `gfx-labs` and `oku-trade`.
 
 ## Scope and attribution

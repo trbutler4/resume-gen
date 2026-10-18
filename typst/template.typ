@@ -1,4 +1,4 @@
-// Shared PDF renderer. Resume content comes from the TypeScript config export.
+// Shared PDF renderer. Resume content comes from native Typst configuration.
 #let resume(data) = {
   set document(title: data.personalInfo.name + " - " + data.title, author: data.personalInfo.name)
   set page(paper: "us-letter", margin: (x: 0.6in, y: 0.5in), numbering: none)
@@ -7,7 +7,7 @@
   set list(indent: 0pt, body-indent: 12pt, spacing: 4.5pt, tight: false, marker: [•])
   show link: it => text(fill: rgb("#174a70"), it)
 
-  // Same literal, case-insensitive, longest-match policy as the HTML renderer.
+  // Literal, case-insensitive emphasis; longest phrase wins at the same position.
   let emphasize(value) = {
     let terms = data.emphasize.keywords + data.emphasize.metrics
     let remaining = value

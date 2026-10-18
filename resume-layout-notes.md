@@ -1,5 +1,7 @@
 # Resume layout guidance and implementation
 
+**Generator migration:** The current generator is native Typst. `typst/template.typ` preserves the PDF layout and emphasis behavior described here; `typst/configs.typ` supplies data directly. HTML-specific notes describe the former renderer, removed during the migration.
+
 Reviewed October 17, 2026. Sources reflect current guidance, including updates published since 2025.
 
 ## Sources

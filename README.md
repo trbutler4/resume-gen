@@ -1,91 +1,97 @@
-# TypeScript Resume Generator
+# Resume Generator
 
-A modern, type-safe resume generation system built with TypeScript that allows you to easily customize your resume for different job types and requirements.
+Native Typst resume generation with reusable portfolio data and per-role selections.
 
-### Installation
+## Build
 
-```bash
-# Install dependencies
-bun install
-
-# Build TypeScript files (automatically runs after install)
-bun run build
-```
-
-### Generate Resumes
+Install Typst and Liberation Sans, or enter the reproducible Nix shell:
 
 ```bash
-bun generate
+nix develop
+./build.sh                # Build all resume variants
+./build.sh anthropic      # Build only the Anthropic resume
+./build.sh baseline       # Build the incoming general-purpose baseline
 ```
 
-### Anthropic / Frontier Red Team Resume
+PDFs are generated under `gen/resumes/`:
+
+- `gen/resumes/resume-anthropic.pdf` — current two-page fellowship resume
+- `gen/resumes/baseline.pdf` — general-purpose baseline
+- `gen/resumes/resume-<variant>.pdf` — other tailored resumes
+
+Available tailored variants: `anthropic`, `swe`, `ai`, `blockchain`, `fullStack`,
+`mobile`, `suffixLabs`, `sre`, and `dragonfly`.
+
+Open the fellowship PDF in a browser:
 
 ```bash
-# Generate HTML, JSON, and a two-page PDF (requires Typst)
-bun run generate:anthropic
+firefox gen/resumes/resume-anthropic.pdf
 ```
 
-Outputs:
-- `resumes/resume-anthropic.html`
-- `resumes/resume-anthropic.json`
-- `typst/pdfs/resume-anthropic.pdf`
+Build from another directory by calling this repository's `build.sh` by path.
+Outside the Nix shell, install Liberation Sans or set `TYPST_FONT_PATHS` to its
+font directory. No TypeScript compilation, Bun, or generated JSON is required.
 
-Resume content lives in TypeScript, not in the PDF template:
+## Sources
 
-- `src/experienceData.ts`: reusable work experience, projects, contributions, and skills.
-- `src/config.ts`: selections, ordering, and wording tailored to each opportunity.
-- `typst/template.typ`: shared PDF layout, consuming the JSON config export.
-- `typst/resume-anthropic.typ`: thin entry point loading the Anthropic JSON export.
+- `typst/portfolio.typ` — complete reusable portfolio: work, projects, open source,
+  education, skills, and named engineering highlights.
+- `typst/configs.typ` — role-specific selections and wording, including Anthropic.
+- `typst/template.typ` — readable PDF layout, selective emphasis, and section breaks.
+- `typst/resume-*.typ` — thin entry points selecting a config.
+- `typst/data.typ`, `typst/lib.typ`, `typst/baseline.typ` — incoming baseline data,
+  layout, and selection, preserved as a separate baseline variant.
 
-### Reuse the Portfolio for Another Role
+The merge migration preserves all 60 former TypeScript portfolio exports and all
+nine tailored configurations as native Typst data. The existing CamelCase export
+names remain available so previous tailoring references are easy to find.
+The baseline retains its incoming descriptions and dates; the Anthropic selection
+retains the latest application-specific edits. Treat these as explicit variants
+when updating shared facts.
 
-Import named entries from `src/experienceData.ts` into a new `ResumeConfig` in
-`src/config.ts`, then register it in `configs`. Existing configurations demonstrate
-selection and object-spread overrides for shorter, role-specific descriptions.
+## Tailor Another Resume
 
-New reusable projects include:
-
-| Area | Exports |
-| --- | --- |
-| Systems and developer tools | `ArgosProject`, `NixInfrastructureProject`, `IntentProject`, `WtmuxProject` |
-| Infrastructure and APIs | `StarknetValidatorProject`, `AssetRegistryProject`, `TranscriptAPIProject` |
-| AI and applied cryptography | `ZKGenomicsProofsProject`, `ZKGenomicsBackendProject`, `EternumDiplomatProject`, `NPCChatbotProject` |
-| Smart contracts and security | `EthernautSecurityProject`, `ETHChicagoContractsProject`, `PolygonIDProject`, `PolygonArbitrageProject` |
-| Additional prototypes and patches | `ZcashTransactionProject`, `SynpressCompatibilityProject`, `ChutesDeploymentProject`, `BahSheepleRustProject` |
-| Upstream contributions | `KakarotOpenSourceExperience`, `MadaraOpenSourceExperience`, `OpenCodeOpenSourceExperience`, `ElizaOpenSourceExperience` |
-| Systems-focused employment | `GFXLabsSystemsWorkExperience`, `NakamotoSystemsWorkExperience`, `TholosSystemsWorkExperience`, `SuffixLabsEngineeringWorkExperience`, `MSCSystemsWorkExperience` |
-
-Prototype and unmerged-contribution labels are part of the shared records. Preserve
-those qualifications when tailoring. Evidence links and review notes are in
-`github-skills-audit.md`.
-
-GFX Labs bullets can also be selected individually from
-`GFXLabsEngineeringHighlights`. Backend, security, streaming, agent-tooling, and
-simulation evidence is documented in `gfx-experience-audit.md`.
-
-```bash
-bun run build
-bun dist/src/cli.js generate anthropic --no-build
-bun dist/src/cli.js generate anthropic --no-build --format json
-typst compile --root . typst/resume-anthropic.typ typst/pdfs/resume-anthropic.pdf
-```
-
-For another config, export its JSON and create a matching Typst entry point:
+Import a config and portfolio entries, then override only the fields needed for
+the application. Save an entry point as `typst/resume-company-role.typ`:
 
 ```typst
 #import "template.typ": resume
-#resume(json("../resumes/resume-your-role.json"))
+#import "configs.typ": anthropicConfig
+#import "portfolio.typ": ArgosProject, IntentProject
+
+#resume((
+  ..anthropicConfig,
+  title: "Senior Software Engineer",
+  projects: (ArgosProject, IntentProject),
+))
 ```
 
-Use `--root .` when compiling from the repository root so Typst can read the JSON
-under `resumes/`. Optional `pageBreakBefore` in a config controls section breaks;
-the template keeps individual entries together. Review the resulting page count
-after selecting content for a new role.
+Run `./build.sh company-role`, or build directly:
 
-Set `showEntryTools: false` to omit repeated per-entry tool lists in HTML and PDF
-while retaining the selected skills summary.
+```bash
+typst compile --root . typst/resume-company-role.typ gen/resumes/resume-company-role.pdf
+```
 
-The PDF template uses Liberation Sans. `nix develop` supplies its font path;
-outside the Nix shell, install Liberation Sans or set `TYPST_FONT_PATHS` to its
-font directory. Layout rationale and current ATS guidance are documented in
-`resume-layout-notes.md`.
+Use `pageBreakBefore` to control section breaks and `showEntryTools: false` to omit
+repeated tool lists. `emphasize.keywords` and `emphasize.metrics` control literal,
+case-insensitive bolding. Keep prototype and unmerged-contribution qualifications
+when selecting entries.
+
+### Reusable Portfolio
+
+| Area | Selected exports |
+| --- | --- |
+| Systems and developer tools | `ArgosProject`, `NixInfrastructureProject`, `IntentProject`, `WtmuxProject` |
+| Infrastructure and APIs | `StarknetValidatorProject`, `AssetRegistryProject`, `TranscriptAPIProject` |
+| AI and cryptography | `ZKGenomicsProofsProject`, `ZKGenomicsBackendProject`, `EternumDiplomatProject`, `NPCChatbotProject`, `AISmartContractVulnerabilityProject` |
+| Smart contracts and security | `EthernautSecurityProject`, `ETHChicagoContractsProject`, `PolygonIDProject`, `PolygonArbitrageProject` |
+| Additional prototypes and patches | `ZcashTransactionProject`, `SynpressCompatibilityProject`, `ChutesDeploymentProject`, `BahSheepleRustProject` |
+| Upstream contributions | `KakarotOpenSourceExperience`, `MadaraOpenSourceExperience`, `OpenCodeOpenSourceExperience`, `ElizaOpenSourceExperience` |
+| Employment variants | `GFXLabsSystemsWorkExperience`, `NakamotoSystemsWorkExperience`, `TholosSystemsWorkExperience`, `SuffixLabsEngineeringWorkExperience`, `MSCSystemsWorkExperience` |
+
+`GFXLabsEngineeringHighlights` and `NakamotoEngineeringHighlights` provide individual
+bullets for more focused tailoring. Evidence and layout rationale are documented in
+`github-skills-audit.md`, `gfx-experience-audit.md`, and `resume-layout-notes.md`.
+
+Generated PDFs are ignored by Git. Historical audit references to TypeScript/HTML
+describe the pre-migration implementation; current sources are the Typst files above.

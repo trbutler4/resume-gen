@@ -1,10 +1,30 @@
-# Dependencies
+# Generated PDFs
+gen/resumes/*.pdf
+
+# Generated files (safe to delete)
+gen/
+
+# Artifacts from the former TypeScript generator
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# for direnv
-.envrc
-
 dist/
+resumes/
+typst/pdfs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Nix
+result
