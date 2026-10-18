@@ -20,7 +20,7 @@ export const DefaultPersonalInfo: PersonalInfo = {
 export const UIowaEducation: Education = {
   id: "university-iowa",
   institution: "University of Iowa",
-  degree: "BSE Computer Science and Engineering",
+  degree: "BSE Computer Science and Engineering — Focus Area: Machine Learning",
 };
 
 export const AllSkills: Skills = {
@@ -39,6 +39,8 @@ export const AllSkills: Skills = {
     "Verilog",
     "x64 Assembly",
     "Bash",
+    "SQL",
+    "Nix",
   ],
   tools: [
     "Linux",
@@ -81,6 +83,26 @@ export const AllSkills: Skills = {
     "Dojo",
     "Cypress",
     "Synpress",
+    "NixOS",
+    "nix-darwin",
+    "Home Manager",
+    "K3s",
+    "Prometheus",
+    "Grafana",
+    "FastAPI",
+    "OpenAPI",
+    "SQLite",
+    "Playwright",
+    "gnark",
+    "Groth16",
+    "CGO/FFI",
+    "Anthropic API",
+    "Temporal",
+    "ConnectRPC",
+    "Protocol Buffers",
+    "Redis Streams",
+    "WebSockets",
+    "XState",
   ]
 }
 
@@ -90,16 +112,35 @@ export const DefaultProfessionalSummary: ProfessionalSummary = {
 };
 
 // ---- Work Experience ----
+// Select individual highlights when tailoring; evidence: gfx-experience-audit.md.
+export const GFXLabsEngineeringHighlights = {
+  tradingBackend: "Built Go services for Hyperliquid perpetuals trading with ConnectRPC APIs, Temporal order workflows, and Redis-backed market-data streaming.",
+  transactionSafety: "Hardened signed transaction and withdrawal flows with replay protection, recovery handling, and on-chain settlement verification.",
+  concurrency: "Resolved PostgreSQL advisory-lock deadlocks and authentication lifecycle races; added regression tests for execution isolation and session handling.",
+  streaming: "Implemented WebSocket provider failover, priority-based routing, and subscription-capacity enforcement in a Go market-data proxy.",
+  agentTooling: "Built runtime observability tooling for coding agents, exposing allowlisted diagnostics and bounded event snapshots through a local collector.",
+  simulation: "Fixed EVM swap simulations for scaled-balance tokens and Arbitrum gas pricing, with state-override validation and regression tests.",
+  accountAbstraction: "Added account-mode handling, typed-data signing and verification, and spot/perpetuals balance transfers to trading APIs.",
+  agentDesignContext: "Built a Figma-to-code manifest generator that maps design nodes to components and Storybook stories for LLM consumption.",
+  deliveryAutomation: "Updated miniapp release and preview workflows for automatic Kubernetes deployment and added Nix packaging for the trading CLI.",
+  plasmaLaunch: "Built the trading interface for Plasma's $2.4B token launch, powered by Oku's DEX aggregator.",
+  mentorship: "Established code review standards and mentored three junior engineers on architecture and implementation.",
+  designSystem: "Led design system adoption across Oku products and integrated Storybook and visual review tooling into development workflows.",
+};
+
 export const GFXLabsWorkExperience: WorkExperience = {
   id: "gfx-senior",
   position: "Senior Software Engineer",
   company: "GFX Labs",
   duration: "September 2025 - Present",
   responsibilities: [
-    "Led the overhaul of UI development practices to a design system-based approach, establishing consistent brand identity across Oku and other GFX Labs products while mentoring junior developers and designers on the new workflow.",
-    "Took full ownership of a greenfield trading interface for Plasma's $2.4B token launch, building a crypto trading application powered by Oku's meta aggregator.",
-    "Established code review standards and mentored three junior engineers on architecture and best practices, while integrating tooling to streamline designer participation in the review process.",
-    "Worked across the full stack to deliver greenfield projects, owning both frontend and backend development.",
+    GFXLabsEngineeringHighlights.tradingBackend,
+    GFXLabsEngineeringHighlights.transactionSafety,
+    GFXLabsEngineeringHighlights.streaming,
+    GFXLabsEngineeringHighlights.agentTooling,
+    GFXLabsEngineeringHighlights.plasmaLaunch,
+    GFXLabsEngineeringHighlights.mentorship,
+    GFXLabsEngineeringHighlights.designSystem,
   ],
   tools: [
     "Typescript",
@@ -120,7 +161,15 @@ export const GFXLabsWorkExperience: WorkExperience = {
     "Git/Github",
     "Digital Ocean",
     "Temporal",
-    "Nix"
+    "Nix",
+    "ConnectRPC",
+    "Protocol Buffers",
+    "Redis Streams",
+    "WebSockets",
+    "React Native",
+    "XState",
+    "Prometheus",
+    "Vitest",
   ],
 };
 
@@ -149,6 +198,11 @@ export const GFXLabsDragonflyWorkExperience: WorkExperience = {
   ],
 };
 
+export const NakamotoEngineeringHighlights = {
+  evaluation: "Investigated subnet evaluation weaknesses and exploited scoring flaws to win Bittensor subnet competitions.",
+  inference: "Unified datacenter and cloud servers in a Kubernetes cluster for autoscaled AI inference; used USB-to-PCIe GPU connections to work around server-rack space constraints.",
+};
+
 export const NakamotoWorkExperience: WorkExperience = {
   id: "nakamoto-senior",
   position: "Senior Software Engineer",
@@ -157,7 +211,8 @@ export const NakamotoWorkExperience: WorkExperience = {
   responsibilities: [
     "Lead team of two engineers to compete in Bittensor subnets.",
     "Fine-tuned tool calling LLMs, beating SOTA models on Berkley Function Calling Leaderboard, and achieving top 10% subnet performance.",
-    "Built and maintained infrastructure combining physical datacenter and cloud servers into a unified kubernetes cluster, delivering high-performance auto-scaled AI inference.",
+    NakamotoEngineeringHighlights.evaluation,
+    NakamotoEngineeringHighlights.inference,
     "Engineered an advanced concurrent microservice architecture in Python and Golang that efficiently harvested and processed massive datasets from Reddit, Twitter, and Youtube, providing competitive edge in Bittensor subnet 13 (Data Universe).",
   ],
   tools: [
@@ -255,14 +310,17 @@ export const TholosDragonflyWorkExperience: WorkExperience = {
   ],
 };
 
+export const SuffixLabsClientEngineering = "Delivered client projects spanning Solidity smart contracts and React/TypeScript applications, collaborating with remote teams on implementation, testing, and integration.";
+
 export const SuffixLabsWorkExperience: WorkExperience = {
   id: "suffix-labs-founder",
-  position: "Founder and CEO",
+  position: "Founder",
   company: "Suffix Labs",
   duration: "July 2023 - Present",
   responsibilities: [
     "Founded Suffix Labs LLC to provide consulting and software development services.",
     "Consulted on and wrote software for various Web3/Smart Contract related projects.",
+    SuffixLabsClientEngineering,
     "Worked asynchronously with multiple fully remote teams to build frontends for crypto lending platforms, services, and communities.",
     "Run two Starknet validators with over $500k in combined delegated stake.",
   ],
@@ -286,9 +344,19 @@ export const SuffixLabsWorkExperience: WorkExperience = {
   status: "optional",
 };
 
+export const SuffixLabsEngineeringWorkExperience: WorkExperience = {
+  ...SuffixLabsWorkExperience,
+  id: "suffix-labs-engineering",
+  responsibilities: [
+    "Founded and operate a software consultancy serving clients across Web3 and crypto lending.",
+    SuffixLabsClientEngineering,
+  ],
+  tools: ["Solidity", "Foundry", "OpenZeppelin", "TypeScript", "React"],
+};
+
 export const SuffixLabsDragonflyWorkExperience: WorkExperience = {
   id: "suffix-labs-founder-dragonfly",
-  position: "Founder and CEO",
+  position: "Founder",
   company: "Suffix Labs",
   duration: "July 2023 - Present",
   responsibilities: [
@@ -415,7 +483,8 @@ export const CairoZedOpenSourceExperience: OpenSourceExperience = {
   duration: "July 2024 - Present",
   link: "https://github.com/trbutler4/zed-cairo",
   responsibilities: [
-    "Developed and maintain the Cairo programming language extension for the Zed text editor, with 7000+ users.",
+    "Developed and maintain the Cairo programming language extension for Zed, with 55,000+ downloads.",
+    "Updated Cairo Tree-sitter grammar definitions and parser corpus tests.",
   ],
   tools: ["Rust", "Tree-Sitter", "Language Server Protocol", "Git/Github"],
 };
@@ -585,4 +654,256 @@ export const DesktopVotingAppProject: Project = {
     "Authentication for different user types, including voter, auditor, and media users.",
   ],
   tools: ["Java", "SQL", "SQLite"],
+};
+
+// ---- Systems, AI, and security portfolio ----
+// Evidence and prototype/merge-status notes: github-skills-audit.md.
+
+export const ArgosProject: Project = {
+  id: "argos",
+  name: "Argos — LLM Development Infrastructure",
+  link: "https://github.com/trbutler4/argos",
+  description: "Built a Rust CLI/TUI for parallel LLM-assisted development, provisioning task-specific NixOS microVM workspaces and managing local and remote tmux sessions over SSH.",
+  achievements: ["Built cancellable discovery and subprocess supervision with deadlines, output limits, and process-group cleanup; verified lifecycle behavior with Python integration tests."],
+  tools: ["Rust", "NixOS", "microVMs", "SSH", "Unix process management", "Python", "GitHub Actions"],
+};
+
+export const NixInfrastructureProject: Project = {
+  id: "nix-infrastructure",
+  name: "Multi-Machine Nix Infrastructure",
+  link: "",
+  description: "Maintain declarative configurations for 7 Linux/macOS hosts through Nix flakes, NixOS, nix-darwin, and shared Home Manager modules.",
+  achievements: ["Built reusable development shells for Python, Rust, Go, and TypeScript, a declarative k3s server configuration, and offline NixOS installers containing prebuilt system closures."],
+  tools: ["Nix", "NixOS", "nix-darwin", "Home Manager", "K3s", "Linux"],
+};
+
+export const StarknetValidatorProject: Project = {
+  id: "starknet-validator-manager",
+  name: "Starknet Validator Deployment & Monitoring",
+  link: "https://github.com/suffix-labs/sn-vali-manager",
+  description: "Built Kubernetes deployment and monitoring tooling for a shared Pathfinder full node and two Starknet validator services, with Prometheus alerts, Grafana dashboards, and scheduled Telegram reports.",
+  tools: ["Kubernetes", "Prometheus", "Grafana", "Docker", "Bash", "JavaScript", "Starknet"],
+};
+
+export const IntentProject: Project = {
+  id: "intent",
+  name: "Intent — Code Review Tool Prototype",
+  link: "https://github.com/trbutler4/intent",
+  description: "Built a Rust code-review prototype with Git diff inspection, a shared review engine, terminal/native interfaces, and SQLite-backed reviewed-file state.",
+  achievements: ["Implemented Tree-sitter AST traversal and a prototype syntax-based graph view for exploring Rust code."],
+  additionalInfo: "Model-backed review remains planned; the implemented tool focuses on local code inspection.",
+  tools: ["Rust", "Tree-sitter", "SQLite", "Ratatui", "GPUI", "Nix"],
+};
+
+export const WtmuxProject: Project = {
+  id: "wtmux",
+  name: "wtmux — Git Worktree & Session Manager",
+  link: "https://github.com/trbutler4/wtmux",
+  description: "Built a Rust CLI/TUI for repository discovery, Git worktree creation and cleanup, and tmux session management, with JSONL profiling and GitHub PR-status integration.",
+  tools: ["Rust", "Git", "tmux", "Ratatui", "Nix"],
+};
+
+export const ZKGenomicsProofsProject: Project = {
+  id: "zkgenomics-proofs",
+  name: "ZKGenomics — Genomic Proof Prototypes",
+  link: "https://github.com/ZKGenomics/zkgenomics-proofs",
+  description: "Built Go prototypes using gnark/Groth16 for VCF parsing, circuit and witness construction, proof generation, serialization, and proof-data verification.",
+  tools: ["Go", "gnark", "Groth16", "BN254", "VCF"],
+};
+
+export const ZKGenomicsBackendProject: Project = {
+  id: "zkgenomics-backend",
+  name: "ZKGenomics — AI Backend",
+  link: "https://github.com/suffix-labs/zkg-mvp-archive",
+  description: "Built Go backend integrations with an OpenAI-compatible LLM endpoint, supplying contextual proof results and user knowledge files to chat requests.",
+  achievements: ["Implemented HTTP timeouts and context cancellation, PostgreSQL persistence and migrations, and API/CLI integration for the prototype platform."],
+  tools: ["Go", "REST APIs", "PostgreSQL", "DigitalOcean Gradient", "Docker", "GitHub Actions"],
+};
+
+export const EthernautSecurityProject: Project = {
+  id: "ethernaut-security",
+  name: "Ethernaut — Reproducible Exploit Tests",
+  link: "https://github.com/trbutler4/ethernaut_lab",
+  description: "Reproduced predictable-randomness and integer-underflow exploits using Foundry block manipulation, account impersonation, and assertions to verify attack outcomes.",
+  tools: ["Solidity", "Foundry", "Exploit reproduction"],
+};
+
+export const EternumDiplomatProject: Project = {
+  id: "eternum-diplomat",
+  name: "Eternum Diplomat — LLM Agent Prototype",
+  link: "https://github.com/trbutler4/realms-diplomat-archive",
+  description: "Prototyped game diplomats using Daydreams and Anthropic's API, adding character/context integration, basic agent-to-agent greeting flows, and a mocked GraphQL game-state server.",
+  tools: ["TypeScript", "Anthropic API", "Daydreams", "GraphQL", "Bun"],
+};
+
+export const ZcashTransactionProject: Project = {
+  id: "zcash-t2o",
+  name: "Zcash Transparent-to-Orchard — Hackathon Prototype",
+  link: "https://github.com/suffix-labs/zcash-t2o",
+  description: "Explored Go/Rust interoperability for Zcash transaction construction, PCZT serialization, ZIP 244 signature hashing, and Orchard-library integration through CGO/FFI.",
+  additionalInfo: "Experimental AI-assisted hackathon prototype; end-to-end functionality is not established.",
+  tools: ["Go", "Rust", "CGO/FFI", "Zcash", "Nix"],
+};
+
+export const SynpressCompatibilityProject: Project = {
+  id: "synpress-metamask-compatibility",
+  name: "Synpress — MetaMask Compatibility Patch (Fork)",
+  link: "https://github.com/trbutler4/synpress/commit/a2211ff4e5012fb18f6eb6b82c7bb8c4da7e7533",
+  description: "Updated Playwright wallet fixtures for MetaMask v13 onboarding, including recovery-phrase import, password selectors, and extension loading.",
+  additionalInfo: "Patch published on a personal fork; not established as merged upstream.",
+  tools: ["TypeScript", "Playwright", "Synpress", "MetaMask"],
+};
+
+export const ChutesDeploymentProject: Project = {
+  id: "chutes-deployment-management",
+  name: "Chutes Miner — Deployment Management Proposal",
+  link: "https://github.com/chutesai/chutes-miner/pull/18",
+  description: "Proposed Python API routes and CLI commands for removing individual GPU deployments or deployments on a selected node, using asynchronous database and HTTP operations.",
+  additionalInfo: "Contribution was not merged at the time of review.",
+  tools: ["Python", "FastAPI", "asyncio", "SQLAlchemy", "aiohttp", "Typer"],
+};
+
+export const AssetRegistryProject: Project = {
+  id: "asset-registry",
+  name: "Multi-Network Asset Registry",
+  link: "https://github.com/trbutler4/avalabs-takehome",
+  description: "Built a Node.js/Express asset-registry API with REST/OpenAPI, raw PostgreSQL queries and migrations, blockchain RPC integration, and rate limiting, alongside a React client.",
+  tools: ["TypeScript", "Node.js", "Express", "PostgreSQL", "OpenAPI", "Docker", "Nix"],
+};
+
+export const TranscriptAPIProject: Project = {
+  id: "transcript-api",
+  name: "YouTube Transcript API",
+  link: "https://github.com/trbutler4/n8n-companion-api",
+  description: "Built a FastAPI service with Pydantic request validation, asynchronous transcript retrieval, and downloadable transcript responses.",
+  tools: ["Python", "FastAPI", "Pydantic", "yt-dlp"],
+};
+
+export const ETHChicagoContractsProject: Project = {
+  id: "ethchicago-contracts",
+  name: "ETHChicago — Community Smart Contracts",
+  link: "https://github.com/ETHChicago/ethchi-contracts",
+  description: "Built Solidity community contracts, Foundry tests and deployment scripts, and an NFT-owner scraping script for airdrop distribution.",
+  tools: ["Solidity", "Foundry", "JavaScript", "Ethers"],
+};
+
+export const PolygonIDProject: Project = {
+  id: "polygon-id-integration",
+  name: "Polygon ID — Credential Issuance Integration",
+  link: "https://github.com/trbutler4/humancore-zk-psychographics",
+  description: "Prototyped credential issuance using Polygon ID/iden3, integrating an issuer application and on-chain identity contracts with a web interface.",
+  tools: ["Go", "TypeScript", "Solidity", "Polygon ID", "Docker"],
+};
+
+export const PolygonArbitrageProject: Project = {
+  id: "polygon-arbitrage",
+  name: "Polygon Flash-Loan Arbitrage Prototype",
+  link: "https://github.com/trbutler4/polygon_arbitrage",
+  description: "Prototyped Solidity integrations with Aave flash loans and Uniswap/SushiSwap routers for token-swap arbitrage on Polygon.",
+  additionalInfo: "Exploratory implementation with unfinished testing; no profitability or production-readiness claim.",
+  tools: ["Solidity", "Aave", "Uniswap", "SushiSwap", "Hardhat"],
+};
+
+export const BahSheepleRustProject: Project = {
+  id: "bah-sheeple-rust",
+  name: "Bah Sheeple — Rust Authentication Prototype",
+  link: "https://github.com/trbutler4/bah-sheeple/tree/rust-rewrite",
+  description: "Explored Rust web authentication on a prototype branch using Actix Web and OAuth2, including authorization-flow changes.",
+  tools: ["Rust", "Actix Web", "OAuth2"],
+};
+
+export const NPCChatbotProject: Project = {
+  id: "npc-chatbot",
+  name: "GPT-3 NPC Chatbot",
+  link: "https://github.com/trbutler4/NPC",
+  description: "Built a Python command-line chatbot using OpenAI's completion API, a character backstory, and accumulated conversation context.",
+  tools: ["Python", "OpenAI API"],
+};
+
+export const KakarotOpenSourceExperience: OpenSourceExperience = {
+  id: "kakarot-contributor",
+  position: "Contributor",
+  project: "Kakarot zkEVM",
+  duration: "September 2023",
+  link: "https://github.com/kkrt-labs/kakarot-ssj/pull/241",
+  responsibilities: ["Contributed merged EVM opcode and arithmetic implementations in Cairo, including SHL execution, checked/wrapping bit shifts, and boundary-case tests."],
+  tools: ["Cairo", "EVM", "Unit testing"],
+};
+
+export const MadaraOpenSourceExperience: OpenSourceExperience = {
+  id: "madara-contributor",
+  position: "Contributor",
+  project: "Madara",
+  duration: "October 2023",
+  link: "https://github.com/AbdelStark/madara/pull/1139",
+  responsibilities: ["Updated VM-resource fee constants and affected transaction tests in Madara's Rust codebase; change merged upstream."],
+  tools: ["Rust", "Starknet", "Unit testing"],
+};
+
+export const OpenCodeOpenSourceExperience: OpenSourceExperience = {
+  id: "opencode-contributor",
+  position: "Contributor",
+  project: "OpenCode",
+  duration: "April 2026",
+  link: "https://github.com/anomalyco/opencode/pull/22851",
+  responsibilities: ["Contributed a merged dependency fix for Nix builds, updating the package manifest, Bun lockfile, and Linux Nix dependency hash."],
+  tools: ["Bun", "Nix", "Dependency management"],
+};
+
+export const ElizaOpenSourceExperience: OpenSourceExperience = {
+  id: "eliza-contributor",
+  position: "Documentation Contributor",
+  project: "Eliza",
+  duration: "December 2024",
+  link: "https://github.com/elizaOS/eliza/pull/1350",
+  responsibilities: ["Contributed merged setup documentation clarifying pnpm/Node.js version configuration."],
+  tools: ["pnpm", "Node.js", "Documentation"],
+};
+
+// Reusable systems-focused descriptions for engineering-oriented resumes.
+export const GFXLabsSystemsWorkExperience: WorkExperience = {
+  ...GFXLabsWorkExperience,
+  id: "gfx-senior-systems",
+  responsibilities: [
+    "Developed Oku's perpetuals trading backend in Go, connecting real-time market data to durable order execution through ConnectRPC, Redis Streams, and Temporal.",
+    "Engineered financial workflows for safe retries and recovery, combining signed-action validation, replay protection, and on-chain settlement checks with regression testing.",
+    "Traced failures across database, authentication, and blockchain boundaries; resolved concurrency and transaction-simulation bugs and added regression tests to prevent recurrence.",
+    "Equipped coding agents with structured runtime diagnostics for inspecting application state and failures, using bounded event capture and allowlisted data exposure.",
+    "Delivered React/TypeScript trading interfaces, including Plasma's $2.4B token launch; established shared UI and review practices and mentored 3 junior engineers.",
+  ],
+  tools: ["Go", "TypeScript", "React", "React Native", "ConnectRPC", "Protocol Buffers", "Temporal", "PostgreSQL", "Redis Streams", "WebSockets", "Kubernetes", "Docker", "Nix", "XState"],
+};
+
+export const NakamotoSystemsWorkExperience: WorkExperience = {
+  ...NakamotoWorkExperience,
+  id: "nakamoto-senior-systems",
+  responsibilities: [
+    "Led a team of two engineers competing in Bittensor subnets, building AI and data infrastructure.",
+    "Fine-tuned tool-calling LLMs and evaluated them using the Berkeley Function Calling Leaderboard benchmark; achieved top 10% subnet performance.",
+    "Built concurrent Python and Go microservices to harvest and process data from Reddit, Twitter, and YouTube for Bittensor subnet 13 (Data Universe).",
+    NakamotoEngineeringHighlights.evaluation,
+    NakamotoEngineeringHighlights.inference,
+  ],
+  tools: ["Python", "Go", "Rust", "PyTorch", "Hugging Face", "vLLM", "SGLang", "Kubernetes", "AWS", "PostgreSQL", "Redis"],
+};
+
+export const TholosSystemsWorkExperience: WorkExperience = {
+  ...TholosWorkExperience,
+  id: "tholos-systems",
+  responsibilities: [
+    "Owned iOS and Android applications for an MPC crypto wallet securing over $35 million in digital assets; contributed across the stack, including WebSocket and AWS secure enclave systems.",
+    "Implemented fault-tolerant key backup and recovery across distributed mobile devices, handling network failures, disconnects, and interrupted operations.",
+    "Supported key management, signing, and blockchain integration across Ethereum, EVM L2s, Bitcoin, Solana, and Cosmos.",
+  ],
+  tools: ["TypeScript", "React Native", "Python", "Go", "Rust", "AWS", "FastAPI", "PostgreSQL", "Redis"],
+};
+
+export const MSCSystemsWorkExperience: WorkExperience = {
+  ...MSCWorkExperience,
+  id: "maverick-cloud-systems",
+  responsibilities: [
+    "Owned development of an AWS orphaned-resource cleanup application in Python, Lambda, and Step Functions, with projected initial savings of $14 million.",
+    "Delivered unit and integration tests, CI/CD pipelines, and documentation; contributed to an internal AWS RDS tool used across cloud teams.",
+  ],
+  tools: ["Python", "AWS Lambda", "AWS Step Functions", "CloudFormation", "CI/CD"],
 };

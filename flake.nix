@@ -18,6 +18,7 @@
         {
           default = pkgs.mkShell {
             packages = [ pkgs.bun pkgs.typst ];
+            TYPST_FONT_PATHS = "${pkgs.liberation_ttf}/share/fonts";
           };
         });
     };

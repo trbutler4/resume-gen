@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="../global.css" />
+        <title>Resume - Thomas Robert Butler IV</title>
+    </head>
+    <body>
+        
+        <header class="resume-header">
+            <h1>Thomas Robert Butler IV</h1>
+            <p class="resume-title">Senior Software Engineer | AI Engineering & Blockchain</p>
+            <div class="contact-info">
+                <a href="mailto:trbiv@proton.me">trbiv@proton.me</a> |
+                <a href="https://github.com/trbutler4">github.com/trbutler4</a> |
+                <a href="https://www.linkedin.com/in/thomas-butler-1a435018b/">LinkedIn</a>
+            </div>
+        </header>
+
+        <main>
+            
+      <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <hr class="divider" />
+        <div class="section-content">
+          
+          <ul>
+            <li>
+              <strong>Education:</strong> University of Iowa, BSE Computer Science and Engineering — Focus Area: <strong>Machine Learning</strong>
+            </li>
+            <li>
+              <strong>Languages:</strong> <strong>Python</strong>, Go, Rust, TypeScript, Solidity, Cairo, SQL, Nix, Bash
+            </li>
+            <li>
+              <strong>Tools:</strong> <strong>PyTorch</strong>, Hugging Face, vLLM, SGLang, Kubernetes, Docker, AWS, Linux/NixOS, Temporal, ConnectRPC, PostgreSQL, Redis, Prometheus, Grafana, Foundry, Tree-sitter, React/React Native
+            </li>
+          </ul>
+        </div>
+      </section>
+    
+
+        <section class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            <hr class="divider" />
+            <div class="section-content">
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Senior Software Engineer</strong> –
+                    <strong>GFX Labs</strong>
+                    <span class="entry-date">September 2025 - Present</span>
+                </div>
+                <ul><li>Developed Oku's perpetuals trading backend in Go, connecting real-time market data to <strong>durable order execution</strong> through ConnectRPC, Redis Streams, and Temporal.</li><li>Engineered financial workflows for safe retries and recovery, combining signed-action validation, <strong>replay protection</strong>, and on-chain settlement checks with regression testing.</li><li>Traced failures across database, authentication, and blockchain boundaries; resolved concurrency and transaction-simulation bugs and added <strong>regression tests</strong> to prevent recurrence.</li><li>Equipped coding agents with <strong>structured runtime diagnostics</strong> for inspecting application state and failures, using bounded event capture and allowlisted data exposure.</li><li>Delivered React/TypeScript trading interfaces, including Plasma's $2.4B token launch; established shared UI and review practices and mentored <strong>3 junior engineers</strong>.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Senior Software Engineer</strong> –
+                    <strong>Nakamoto LLC</strong>
+                    <span class="entry-date">January 2025 - June 2025</span>
+                </div>
+                <ul><li>Led two engineers building AI and data infrastructure for Bittensor subnets.</li><li>Fine-tuned <strong>tool-calling LLMs</strong>, evaluated against the Berkeley Function Calling Leaderboard benchmark, and achieved <strong>top 10% subnet performance</strong>.</li><li>Investigated <strong>subnet evaluation weaknesses</strong> and exploited scoring flaws to win Bittensor subnet competitions.</li><li>Unified datacenter and cloud servers in a Kubernetes cluster for <strong>autoscaled AI inference</strong>; used USB-to-PCIe GPU connections to work around server-rack space constraints.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Mobile Software Engineer</strong> –
+                    <strong>Tholos</strong>
+                    <span class="entry-date">October 2023 - January 2025</span>
+                </div>
+                <ul><li>Owned iOS/Android applications for an MPC wallet securing over <strong>$35 million</strong> in assets; implemented WebSocket and AWS secure enclave integrations.</li><li>Built <strong>distributed key backup and recovery</strong> that handled network failures, device disconnects, and interrupted operations.</li><li>Implemented key management, signing, and integrations across Ethereum, EVM L2s, Bitcoin, Solana, and Cosmos.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Founder</strong> –
+                    <strong>Suffix Labs</strong>
+                    <span class="entry-date">July 2023 - Present</span>
+                </div>
+                <ul><li>Founded and operate a software consultancy serving clients across Web3 and crypto lending.</li><li>Delivered client projects spanning Solidity smart contracts and React/TypeScript applications, collaborating with remote teams on implementation, testing, and integration.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Cloud Software Engineer</strong> –
+                    <strong>Maverick Software Consulting -- Thomson Reuters</strong>
+                    <span class="entry-date">June 2021 - May 2023</span>
+                </div>
+                <ul><li>Built an AWS resource-cleanup application in <strong>Python</strong>, Lambda, and Step Functions with projected initial savings of $14 million.</li><li>Owned unit/integration tests, CI/CD, and documentation; contributed to an RDS tool used across cloud teams.</li></ul></article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Selected Projects</h2>
+            <hr class="divider" />
+            <div class="section-content">
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Argos — LLM Development Infrastructure</strong>
+                     - <a href="https://github.com/trbutler4/argos">Source</a>
+                </div>
+                <ul><li>Built cancellable discovery and subprocess supervision with deadlines, output limits, and process-group cleanup; verified lifecycle behavior with <strong>Python integration tests</strong>.</li><li>Built a Rust CLI/TUI for <strong>parallel LLM-assisted development</strong> with task-specific NixOS microVMs and local/remote tmux sessions over SSH.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>ML-Based Smart Contract Vulnerability Detection — University Project</strong>
+                     - <a href="https://github.com/trbutler4/AML_Project">Source</a>
+                </div>
+                <ul><li>Applied <strong>Python</strong>/<strong>PyTorch</strong> to <strong>smart contract vulnerability detection</strong>, extracting opcode features and converting bytecode into RGB images for neural-network classification experiments.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Multi-Machine Nix Infrastructure</strong>
+                    
+                </div>
+                <ul><li>Built reproducible <strong>Python</strong>, Rust, Go, and TypeScript environments and declarative k3s configuration.</li><li>Maintain declarative configurations for <strong>7 Linux/macOS hosts</strong> through Nix flakes, NixOS/nix-darwin, and shared Home Manager modules.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Starknet Validator Deployment & Monitoring</strong>
+                     - <a href="https://github.com/suffix-labs/sn-vali-manager">Source</a>
+                </div>
+                <ul><li>Built Kubernetes deployment tooling for a Pathfinder full node and two validators, with Prometheus alerts, Grafana dashboards, and automated operational reports.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>ZKGenomics — Proof Generation & AI Backend</strong>
+                     - <a href="https://github.com/ZKGenomics/zkgenomics-proofs">Source</a>
+                </div>
+                <ul><li>Integrated an LLM API with proof-result context, user knowledge files, and PostgreSQL persistence.</li><li>Built a Go prototype for gnark/Groth16 proof generation and verification, including VCF parsing, circuit/witness construction, and serialization.</li></ul></article>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Open Source Experience</h2>
+            <hr class="divider" />
+            <div class="section-content">
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Contributor</strong> –
+                    <strong>Kakarot zkEVM</strong> ·
+                    <a href="https://github.com/kkrt-labs/kakarot-ssj/pull/241">Source</a>
+                    <span class="entry-date">September 2023</span>
+                </div>
+                <ul><li>Implemented EVM SHL execution and checked/wrapping bit shifts in Cairo, with <strong>boundary-case tests</strong>; contributions <strong>merged upstream</strong>.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Maintainer</strong> –
+                    <strong>Starknet Phone</strong> ·
+                    <a href="https://github.com/keep-starknet-strange/starknet-phone">Source</a>
+                    <span class="entry-date">September 2024 - Present (development paused)</span>
+                </div>
+                <ul><li>Ported the Beerus Starknet light client to Android and implemented Java bindings in Rust using Android NDK/JNI; maintained the repository and supported <strong>15+ contributors</strong>.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Maintainer</strong> –
+                    <strong>Cairo Zed Extension</strong> ·
+                    <a href="https://github.com/trbutler4/zed-cairo">Source</a>
+                    <span class="entry-date">July 2024 - Present</span>
+                </div>
+                <ul><li>Developed and maintain Cairo support for Zed with <strong>55,000+ downloads</strong>, using Rust, Tree-sitter, and LSP; updated grammar definitions and parser corpus tests.</li></ul></article>
+                <article class="resume-entry">
+                <div class="job-title">
+                    <strong>Contributor</strong> –
+                    <strong>OpenCode</strong> ·
+                    <a href="https://github.com/anomalyco/opencode/pull/22851">Source</a>
+                    <span class="entry-date">April 2026</span>
+                </div>
+                <ul><li>Fixed a missing dependency breaking Nix builds; package, lockfile, and build-hash updates <strong>merged upstream</strong>.</li></ul></article>
+            </div>
+        </section>
+        </main>
+    </body>
+</html>

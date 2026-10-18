@@ -63,6 +63,7 @@ Generate a specific resume type.
 **Options:**
 - `-o, --output <dir>` - Output directory (default: `resumes`)
 - `--no-build` - Skip TypeScript build step
+- `-f, --format <format>` - `html` (default) or `json`; JSON exports the selected config for the shared Typst renderer
 
 **Examples:**
 ```bash
@@ -74,6 +75,9 @@ Generate a specific resume type.
 
 # Generate without building (use existing compiled files)
 ./resume-gen gen mobile --no-build
+
+# Export the Anthropic selection for PDF generation
+bun dist/src/cli.js generate anthropic --no-build --format json
 ```
 
 ### `all`

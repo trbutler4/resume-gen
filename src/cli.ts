@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Command } from "commander";
+import { Command, Option } from "commander";
 import chalk from "chalk";
 import ora from "ora";
 import * as fs from "fs";
@@ -47,12 +47,16 @@ const validateResumeType = (type: string): void => {
   }
 };
 
-const generateSingleResume = (type: string, outputDir: string): string => {
-  const outputFile = path.join(outputDir, `resume-${type}.html`);
+const generateSingleResume = (
+  type: string,
+  outputDir: string,
+  format: "html" | "json" = "html",
+): string => {
+  const outputFile = path.join(outputDir, `resume-${type}.${format}`);
   const generator = new ResumeGenerator();
 
   try {
-    generator.generate(type, outputFile);
+    generator.generate(type, outputFile, format);
     return outputFile;
   } catch (error) {
     throw new Error(`Failed to generate ${type} resume: ${error}`);
@@ -65,6 +69,11 @@ program
   .alias("gen")
   .description("Generate a specific resume type")
   .argument("<type>", "Resume type to generate")
+  .addOption(
+    new Option("-f, --format <format>", "Output format")
+      .choices(["html", "json"])
+      .default("html"),
+  )
   .option("-o, --output <dir>", "Output directory", "resumes")
   .option("--no-build", "Skip TypeScript build step")
   .action((type: string, options) => {
@@ -84,14 +93,16 @@ program
     // Generate resume
     const spinner = ora(`Generating ${type} resume...`).start();
     try {
-      const outputFile = generateSingleResume(type, options.output);
+      const outputFile = generateSingleResume(type, options.output, options.format);
       spinner.succeed(`Generated: ${chalk.green(outputFile)}`);
 
       console.log(chalk.gray("\n📁 Output location:"), chalk.cyan(outputFile));
-      console.log(
-        chalk.gray("🌐 Open in browser:"),
-        chalk.cyan(`file://${path.resolve(outputFile)}`),
-      );
+      if (options.format === "html") {
+        console.log(
+          chalk.gray("🌐 Open in browser:"),
+          chalk.cyan(`file://${path.resolve(outputFile)}`),
+        );
+      }
     } catch (error) {
       spinner.fail(`Failed to generate ${type} resume`);
       console.error(chalk.red("Error:"), error);

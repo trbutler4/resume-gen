@@ -10,6 +10,7 @@
     "build": "tsc",
     "dev": "tsc --watch",
     "generate": "bun run build && bun dist/src/cli.js all",
+    "generate:anthropic": "bun run build && bun dist/src/cli.js generate anthropic --no-build && bun dist/src/cli.js generate anthropic --no-build --format json && typst compile --root . typst/resume-anthropic.typ typst/pdfs/resume-anthropic.pdf",
     "pdf": "./compile.sh",
     "type-check": "tsc --noEmit",
     "install-global": "npm run build && npm install -g .",

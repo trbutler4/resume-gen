@@ -8,6 +8,7 @@ export interface PersonalInfo {
 }
 
 export interface ProfessionalSummary {
+  statement?: string;
   education: Education,
   skills: Skills
 }
@@ -83,4 +84,7 @@ export interface ResumeConfig {
   projects: Project[];
   sectionsOrder: SectionName[];
   emphasize: EmphasizeConfig;
+  // Optional print-layout break before a section; content stays shared with HTML.
+  pageBreakBefore?: SectionName[];
+  showEntryTools?: boolean;
 }

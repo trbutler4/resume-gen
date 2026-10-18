@@ -28,10 +28,11 @@ class ResumeGenerator {
 
     return `
         <header class="resume-header">
-            <h1>${personalInfo.name} - ${title}</h1>
+            <h1>${personalInfo.name}</h1>
+            <p class="resume-title">${title}</p>
             <div class="contact-info">
                 <a href="mailto:${personalInfo.email}">${personalInfo.email}</a> |
-                <a href="${personalInfo.github}">Github</a> |
+                <a href="${personalInfo.github}">${personalInfo.github.replace("https://", "")}</a> |
                 <a href="${personalInfo.linkedin}">LinkedIn</a>
             </div>
         </header>`;
@@ -47,18 +48,19 @@ class ResumeGenerator {
 
     let html = `
       <section class="section">
-        <h3 class="section-title">Summary</h3>
+        <h2 class="section-title">${this.config.professionalSummary.statement ? "Summary" : "Technical Skills"}</h2>
         <hr class="divider" />
         <div class="section-content">
+          ${this.config.professionalSummary.statement ? `<p>${this.config.professionalSummary.statement}</p>` : ""}
           <ul>
             <li>
-              <strong>Education:</strong> ${education.institution}, ${education.degree}
+              <strong>Education:</strong> ${education.institution}, ${this.emphasizeText(education.degree)}
             </li>
             <li>
-              <strong>Languages:</strong> ${skills.languages.join(", ")}
+              <strong>Languages:</strong> ${this.emphasizeText(skills.languages.join(", "))}
             </li>
             <li>
-              <strong>Tools:</strong> ${skills.tools.join(", ")}
+              <strong>Tools:</strong> ${this.emphasizeText(skills.tools.join(", "))}
             </li>
           </ul>
         </div>
@@ -79,15 +81,17 @@ class ResumeGenerator {
 
     let html = `
         <section class="section">
-            <h3 class="section-title">Work Experience</h3>
+            <h2 class="section-title">Professional Experience</h2>
             <hr class="divider" />
             <div class="section-content">`;
 
     this.config.workExperience.forEach((exp: WorkExperience) => {
       html += `
+                <article class="resume-entry">
                 <div class="job-title">
                     <strong>${exp.position}</strong> –
-                    <em>${exp.company} (${exp.duration})</em>
+                    <strong>${exp.company}</strong>
+                    <span class="entry-date">${exp.duration}</span>
                 </div>
                 <ul>`;
 
@@ -95,11 +99,14 @@ class ResumeGenerator {
         html += `<li>${this.emphasizeText(resp)}</li>`;
       });
 
-      html += `
+      if (this.config?.showEntryTools !== false) {
+        html += `
                     <li>
                         <strong>Tools Used:</strong> ${exp.tools.join(", ")}
                     </li>
-                </ul>`;
+                `;
+      }
+      html += "</ul></article>";
     });
 
     html += `
@@ -120,16 +127,18 @@ class ResumeGenerator {
 
     let html = `
         <section class="section">
-            <h3 class="section-title">Open Source Experience</h3>
+            <h2 class="section-title">Open Source Experience</h2>
             <hr class="divider" />
             <div class="section-content">`;
 
     this.config.openSourceExperience.forEach((exp: OpenSourceExperience) => {
       html += `
+                <article class="resume-entry">
                 <div class="job-title">
                     <strong>${exp.position}</strong> –
-                    <em>${exp.project} (${exp.duration}) - </em>
-                    <a href="${exp.link}">Github</a>
+                    <strong>${exp.project}</strong> ·
+                    <a href="${exp.link}">Source</a>
+                    <span class="entry-date">${exp.duration}</span>
                 </div>
                 <ul>`;
 
@@ -137,11 +146,14 @@ class ResumeGenerator {
         html += `<li>${this.emphasizeText(resp)}</li>`;
       });
 
-      html += `
+      if (this.config?.showEntryTools !== false) {
+        html += `
                     <li>
                         <strong>Tools Used:</strong> ${exp.tools.join(", ")}
                     </li>
-                </ul>`;
+                `;
+      }
+      html += "</ul></article>";
     });
 
     html += `
@@ -158,15 +170,16 @@ class ResumeGenerator {
 
     let html = `
         <section class="section">
-            <h3 class="section-title">Project Highlights</h3>
+            <h2 class="section-title">Selected Projects</h2>
             <hr class="divider" />
             <div class="section-content">`;
 
     this.config.projects.forEach((proj: Project) => {
       html += `
+                <article class="resume-entry">
                 <div class="job-title">
-                    <strong>${proj.name} - </strong>
-                    <a href="${proj.link}">Github</a>
+                    <strong>${proj.name}</strong>
+                    ${proj.link ? ` - <a href="${proj.link}">Source</a>` : ""}
                 </div>
                 <ul>`;
 
@@ -187,11 +200,14 @@ class ResumeGenerator {
         html += `<li>${this.emphasizeText(proj.additionalInfo)}</li>`;
       }
 
-      html += `
+      if (this.config?.showEntryTools !== false) {
+        html += `
                     <li>
                         <strong>Tools Used:</strong> ${proj.tools.join(", ")}
                     </li>
-                </ul>`;
+                `;
+      }
+      html += "</ul></article>";
     });
 
     html += `
@@ -204,32 +220,16 @@ class ResumeGenerator {
   emphasizeText(text: string): string {
     if (!this.config || !this.config.emphasize) return text;
 
-    let emphasizedText = text;
-
-    // Emphasize keywords
-    if (this.config.emphasize.keywords) {
-      this.config.emphasize.keywords.forEach((keyword: string) => {
-        const regex = new RegExp(`\\b${keyword}\\b`, "gi");
-        emphasizedText = emphasizedText.replace(
-          regex,
-          `<strong>${keyword}</strong>`,
-        );
-      });
-    }
-
-    // Emphasize metrics
-    if (this.config.emphasize.metrics) {
-      this.config.emphasize.metrics.forEach((metric: string) => {
-        if (emphasizedText.includes(metric)) {
-          emphasizedText = emphasizedText.replace(
-            metric,
-            `<strong>${metric}</strong>`,
-          );
-        }
-      });
-    }
-
-    return emphasizedText;
+    // Literal, case-insensitive matches; longest phrases win at the same position.
+    // One pass preserves original text and avoids nested markup for overlapping terms.
+    const terms = [...this.config.emphasize.keywords, ...this.config.emphasize.metrics]
+      .filter((term) => term.length > 0)
+      .sort((a, b) => b.length - a.length);
+    if (!terms.length) return text;
+    const pattern = terms
+      .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .join("|");
+    return text.replace(new RegExp(pattern, "gi"), (match) => `<strong>${match}</strong>`);
   }
 
   generateSections(): string {
@@ -272,16 +272,23 @@ class ResumeGenerator {
 </html>`;
   }
 
-  generate(configType: string, outputPath?: string): void {
+  generate(
+    configType: string,
+    outputPath?: string,
+    format: "html" | "json" = "html",
+  ): void {
     this.loadConfig(configType);
 
-    const html = this.generateHTML();
+    const output =
+      format === "json"
+        ? JSON.stringify(this.config, null, 2) + "\n"
+        : this.generateHTML();
 
     if (outputPath) {
-      fs.writeFileSync(outputPath, html);
+      fs.writeFileSync(outputPath, output);
       console.log(`Resume generated: ${outputPath}`);
     } else {
-      console.log(html);
+      console.log(output);
     }
   }
 }

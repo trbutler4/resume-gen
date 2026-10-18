@@ -1,200 +1,127 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: sans-serif;
-    line-height: 1.4;
-    color: #333;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 8px;
-    background-color: #fff;
-    font-size: 12px; /* Base font size reduced further */
+    max-width: 8.5in;
+    margin: 24px auto;
+    padding: 0.5in 0.6in;
+    font-family: "Liberation Sans", Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.3;
+    color: #202124;
+    background: #fff;
 }
 
 .resume-header {
-    text-align: center;
-    margin-bottom: 3px;
-    padding: 12px 0;
+    margin-bottom: 16px;
+    text-align: left;
 }
 
 .resume-header h1 {
-    font-size: 18px; /* Reduced from 20px */
-    font-weight: 600;
-    margin-bottom: 3px;
-    color: #1a1a1a;
+    margin: 0 0 5px;
+    font-size: 20pt;
+    line-height: 1.15;
+}
+
+.resume-title {
+    margin: 0 0 5px;
+    font-size: 11pt;
 }
 
 .contact-info {
-    font-size: 16px; /* Reduced from 18px */
-    line-height: 1.3;
+    font-size: 9.5pt;
 }
 
-.contact-info a {
-    color: #3182ce;
+a {
+    color: #174a70;
     text-decoration: none;
 }
 
-.contact-info a:hover {
+a:hover,
+a:focus-visible {
     text-decoration: underline;
 }
 
 .section {
-    margin-bottom: 12px;
+    margin-top: 16px;
 }
 
 .section-title {
-    font-size: 16px; /* Reduced from 18px */
-    font-weight: 600;
-    margin-bottom: 3px;
-    color: #1a1a1a;
+    margin: 0 0 3px;
+    font-size: 12pt;
+    line-height: 1.2;
 }
 
 .divider {
-    border: none;
-    border-top: 1px solid #e2e8f0;
-    margin-bottom: 6px;
+    border: 0;
+    border-top: 0.5pt solid #b8bec5;
+    margin: 0 0 8px;
 }
 
-.section-content {
-    padding-left: 15px;
+.section-content p {
+    margin: 0 0 5px;
+}
+
+.resume-entry + .resume-entry {
+    margin-top: 16px;
 }
 
 .job-title {
-    font-size: 16px; /* Reduced from 16px */
-    margin-bottom: 6px;
-    margin-top: 12px;
+    margin: 0 0 4px;
+    font-size: 11pt;
 }
 
-.job-title:first-child {
-    margin-top: 0;
-}
-
-.job-title strong {
-    font-weight: 600;
-}
-
-.job-title em {
-    font-style: italic;
-}
-
-.job-title a {
-    color: #3182ce;
-    text-decoration: none;
-}
-
-.job-title a:hover {
-    text-decoration: underline;
+.entry-date {
+    display: block;
+    margin-top: 2px;
+    font-size: 9.5pt;
 }
 
 ul {
-    margin: 8px 0 8px 15px;
+    padding-left: 15px;
+    margin: 4px 0 0;
 }
 
 li {
-    margin-bottom: 5px;
-    line-height: 1.3;
-    font-size: 12px; /* Reduced from 14px */
+    margin: 0 0 6px;
 }
 
-li strong {
-    font-weight: 600;
+li:last-child {
+    margin-bottom: 0;
 }
 
-li a {
-    color: #3182ce;
-    text-decoration: none;
-}
-
-li a:hover {
-    text-decoration: underline;
-}
-
-.education-content {
-    padding-left: 15px;
-    font-size: 14px; /* Reduced from 16px */
-}
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     body {
-        padding: 10px;
-        font-size: 10px; /* Reduced from 12px */
-    }
-
-    .resume-header h1,
-    .resume-header h2 {
-        font-size: 16px; /* Reduced from 20px */
-    }
-
-    .contact-info {
-        font-size: 14px; /* Reduced from 16px */
-    }
-
-    .section-title {
-        font-size: 15px; /* Reduced from 17px */
-    }
-
-    .job-title {
-        font-size: 12px; /* Reduced from 14px */
-    }
-
-    .section-content {
-        padding-left: 8px;
-    }
-
-    ul {
-        margin-left: 10px;
-        margin-top: 6px;
-        margin-bottom: 6px;
+        margin: 0;
+        padding: 20px;
+        font-size: 11pt;
     }
 }
 
 @media print {
+    @page {
+        size: letter;
+        margin: 0.5in 0.6in;
+    }
+
     body {
         max-width: none;
         margin: 0;
-        padding: 10px;
-        font-size: 9px; /* Reduced from 10px */
+        padding: 0;
     }
 
-    .resume-header h1,
-    .resume-header h2 {
-        font-size: 14px; /* Reduced from 16px */
+    .resume-entry {
+        break-inside: avoid;
     }
 
-    .contact-info {
-        font-size: 11px; /* Reduced from 12px */
-    }
-
-    .section-title {
-        font-size: 12px; /* Reduced from 14px */
-    }
-
+    .section-title,
+    .divider,
     .job-title {
-        font-size: 10px; /* Reduced from 12px */
-    }
-
-    .section {
-        margin-bottom: 15px;
+        break-after: avoid;
     }
 
     a {
-        color: #000 !important;
-    }
-
-    @page {
-        margin: 0;
-        size: auto;
-    }
-
-    head,
-    meta,
-    title,
-    link,
-    script {
-        display: none !important;
+        color: inherit;
     }
 }
